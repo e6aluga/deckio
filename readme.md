@@ -9,7 +9,7 @@ This is application through which you can quickly download or send saves of your
 Progress:
 
 1. idea ✓
-2. planning/development (in porgress...)
+2. planning/development (in progress...)
 3. tests
 4. first release!
 
