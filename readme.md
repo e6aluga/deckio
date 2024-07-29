@@ -1,53 +1,14 @@
-an application through which you can quickly download or send saves of your non-steam games from your home computer to the Steam Deck or vice versa.
+Hello!
 
-in development...
+I'm new to Java and I'm making my first pet project
+This is application through which you can quickly download or send saves of your non-steam games from your home computer to the Steam Deck.
 
-<!--
-@startuml
+Progress:
+- [x] idea
+- [ ] planning/development
+- [ ] tests
+- [ ] first release!
 
-class Main{
-+void main
-}
+![class.uml](https://www.plantuml.com/plantuml/dpng/hL9DImCn4BtdL-IunVOFU93wOKMe8gpt9IRZ6ffDbcIs5XR_kvEQrAnKYY0iI-RDcpVpXba651w7pZ1fH0ZyGMWxihEjquftz6OVB6Lga1umZAn6hstBZMifdOAU6E_EAvPA0-0wvglPD_2KE8GTH2_xVZmmhAh55iApgn54TmDoKoNvG7XZd1IedPtpOsX3NuXrZQB2tBO5t6kklEl-JvKM8H3gD-TH3aX-CcvS0B9KEhmJ7Lmx-whRaMcBlAMuqIelRXzQ-h5ZxTdfcN9lK1eVIIVsgtwApmfItCSwIKs8MRyaHxLxLHM35zQkXDmCVU2mGx1gQdMogI_YoXa5FhNCSdF-swml-w8uxHzBJjEZXNZeVB6uY2Tupczt80S4Ha44yx7dkB2MeUoUBSdxq9bF)
 
-class Secrets{
-String login
-String password
-
-+void setLogin()
-+void setPassword()
-}
-
-class App{
-+void sendSavesToSteamDeck(String save_location, String save_location_on_steam_deck)
-+void getSavesFromSteamDeck(String save_location, String save_location_on_steam_deck)
-+void createShortcut()
-
-+void closeApp()
-}
-
-class GameConfig{
-int game_id
-String game_name
-String save_location
-String save_location_on_steam_deck
-
-+void editNameGame(String game_name)
-+void editSaveLocation(String game_location)
-+void editGameId(int game_id)
-}
-
-class Backups extends GameConfig{
-
-+void createBackupFolder(String game_id, String game_name)
-+void backupSave(String game_id, String game_name)
-+void backup(String game_id, String game_name)
-}
-
-Main --> App: Execute
-App --> Secrets
-App --> GameConfig
-App --> Backups
-
-
-@enduml
--->
+![sequance.uml](https://www.plantuml.com/plantuml/dpng/NOz13eCm30JlViMAEn_WKD4te3x03LQBA54QExo_CSeblIMpErfvLkDivVXWaM_X68GeLRA5BN4qF5Ho1-ufTVzXCU43guHz0Elr878DuytR4rJVK0bPJAa2Z3NmmeIN69HFqJz1ujhurM_uoM4lgGzyhWah6-FSsFV8ESPc-auVqroDUlKF)
