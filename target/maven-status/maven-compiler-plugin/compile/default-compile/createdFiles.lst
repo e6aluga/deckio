@@ -1,4 +1,3 @@
-com\deck\SecondaryController.class
+com\example\dddeck\App.class
+com\example\dddeck\SampleController.class
 module-info.class
-com\deck\PrimaryController.class
-com\deck\App.class

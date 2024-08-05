@@ -1,7 +1,7 @@
-module com.deck {
+module com.example.dddeck {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.deck to javafx.fxml;
-    exports com.deck;
+    opens com.example.dddeck to javafx.fxml;
+    exports com.example.dddeck;
 }
