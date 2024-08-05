@@ -6,7 +6,7 @@
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.SampleController">
     <children>
-        <Label fx:id="label" text="Hello, World!" />
+        <Label fx:id="label" text="Config: " />
         <Button text="Click Me" onAction="#handleButtonAction" />
     </children>
 </VBox>

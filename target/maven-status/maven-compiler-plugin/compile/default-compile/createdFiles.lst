@@ -1,3 +1,4 @@
 com\example\dddeck\App.class
 com\example\dddeck\SampleController.class
+com\example\dddeck\Config.class
 module-info.class

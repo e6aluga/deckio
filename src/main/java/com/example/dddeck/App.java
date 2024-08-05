@@ -14,8 +14,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
-        primaryStage.setTitle("FXML Example");
-        primaryStage.setScene(new Scene(root, 300, 200));
+        primaryStage.setTitle("FlyingDeck");
+        primaryStage.setScene(new Scene(root, 300, 400));
         primaryStage.show();  
     }
 
