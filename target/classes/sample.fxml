@@ -9,12 +9,5 @@
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.SampleController">
     <children>
-        <ListView fx:id="listView_configs" prefWidth="200" prefHeight="150">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                </FXCollections>
-            </items>
-        </ListView>
-        <Button text="Add" onAction="#handleButtonAction" />
     </children>
 </VBox>
