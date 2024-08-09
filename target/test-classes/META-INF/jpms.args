@@ -1,0 +1,4 @@
+--patch-module
+com.example.dddeck=_
+--add-reads
+com.example.dddeck=ALL-UNNAMED
