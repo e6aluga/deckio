@@ -50,7 +50,7 @@ public class Config {
         
         try {
             // Запись данных в JSON файл
-            String jsonFileName = String.format("%s.json", configData.getName());
+            String jsonFileName = String.format("configs/%s.json", configData.getName());
             try (FileWriter writer = new FileWriter(jsonFileName)) {
                 gson.toJson(configData, writer);
             }
