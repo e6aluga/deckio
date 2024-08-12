@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ListView?>
 
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.SampleController">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.StartController">
     <ListView fx:id="listView" prefWidth="200" prefHeight="150">
     </ListView>
 

@@ -11,7 +11,6 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,16 +25,15 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
-
-public class SampleController {
-    
+// main window
+public class StartController {
+ 
+// экспорт FXML элементов   
 @FXML
 private ListView<String> listView;
-
 private ExecutorService executorService;
-
 private String selectedItem;
-
+ 
 @FXML
 public void initialize(){
     ContextMenu contextMenu = new ContextMenu();
@@ -48,7 +46,7 @@ public void initialize(){
 
     contextMenu.getItems().addAll(menuItem1, menuItem2);
 
-
+    // фабрика ячеек ListView
     listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>(){
         @Override
         public ListCell<String> call (ListView<String> listView){
@@ -65,6 +63,7 @@ public void initialize(){
                     }
                 }
             };
+            // обработчик событий на ListView
             cell.setOnMouseClicked(event -> {
                 if (!cell.isEmpty() && event.getButton() == MouseButton.SECONDARY) {
                     selectedItem = cell.getItem();
@@ -80,7 +79,7 @@ public void initialize(){
     String directoryPath = "configs/";
     updateListView(directoryPath);
 
-    // Инициализируем и запускаем WatchService для мониторинга изменений
+    // инициализируем и запускаем WatchService для мониторинга изменений
     executorService = Executors.newSingleThreadExecutor();
     startWatching(directoryPath);
 }
@@ -130,39 +129,40 @@ private void handleMenuAction(String function) {
             });
         }
     }
-   private void startWatching(String directoryPath) {
-        try {
-            WatchService watchService = FileSystems.getDefault().newWatchService();
-            Path path = Paths.get(directoryPath);
-            path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE);
+// Обработчик событий в ListView для динамического обновления списка
+    private void startWatching(String directoryPath) {
+            try {
+                WatchService watchService = FileSystems.getDefault().newWatchService();
+                Path path = Paths.get(directoryPath);
+                path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE);
 
-            executorService.submit(() -> {
-                try {
-                    WatchKey key;
-                    while ((key = watchService.take()) != null) {
-                        for (WatchEvent<?> event : key.pollEvents()) {
-                            if (event.kind() == StandardWatchEventKinds.ENTRY_CREATE ||
-                                event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
-                                updateListView(directoryPath);
+                executorService.submit(() -> {
+                    try {
+                        WatchKey key;
+                        while ((key = watchService.take()) != null) {
+                            for (WatchEvent<?> event : key.pollEvents()) {
+                                if (event.kind() == StandardWatchEventKinds.ENTRY_CREATE ||
+                                    event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
+                                    updateListView(directoryPath);
+                                }
                             }
+                            key.reset();
                         }
-                        key.reset();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
                     }
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-    }
-
+// функция для остановки WatchService
     public void stop() {
         if (executorService != null && !executorService.isShutdown()) {
             executorService.shutdownNow();
         }
     }
-
+// функция в контекстном меню ListView для удаления конфига
     private boolean deleteConfig(String selectedItem){
         File file = new File(String.format("configs/%s", selectedItem));
         if (file.exists()){
@@ -172,9 +172,10 @@ private void handleMenuAction(String function) {
             return false;
         }
     }
-
+// функция для редактирования конфига в ListView
     private void editConfig(String selectedItem){
         //todo
+        openAddGameWindow();
     }
 }
 

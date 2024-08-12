@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.Config">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.ConfigManager">
     <Label text="Add config name:"/>
     <TextField fx:id="configNameField" text="Config name"/>
     <Label text="Add game name:"/>
@@ -17,7 +17,5 @@
     <TextField fx:id="saveLocationPCField" text="example: C:\Users\[Username]\Documents\Ghost of Tsushima DIRECTOR’S CUT\"/>
     <Label text="Save location (Steam Deck)"/>
     <TextField fx:id="saveLocationSteamDeckField" text="example: /Home/Games/PrefixGame/Game"/>
-
     <Button fx:id="saveButton" text="Save config" onAction="#saveGame"/>
-    
 </VBox>
