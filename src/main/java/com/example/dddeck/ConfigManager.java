@@ -1,14 +1,18 @@
 package com.example.dddeck;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import java.io.FileReader;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import javafx.stage.Stage;
 
 public class ConfigManager {
 
@@ -61,5 +65,4 @@ public class ConfigManager {
             e.printStackTrace();
         }
     }
-
 }

@@ -85,7 +85,7 @@ public void initialize(){
 }
 
 @FXML
-private void openAddGameWindow(){
+public void openAddGameWindow(){
     try{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addgame.fxml"));
         Parent root = loader.load();
@@ -172,10 +172,13 @@ private void handleMenuAction(String function) {
             return false;
         }
     }
+
 // функция для редактирования конфига в ListView
     private void editConfig(String selectedItem){
         //todo
-        openAddGameWindow();
+        EditConfigController editConfigController = new EditConfigController();
+        editConfigController.setConfigName(selectedItem);
+        editConfigController.openUpdateConfigWindow(selectedItem);
     }
 }
 

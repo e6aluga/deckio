@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController">
+    <Label text="Edit config name:"/>
+    <TextField fx:id="editConfigNameField" text="editableParam"/>
+    <Label text="Edit game name:"/>
+    <TextField fx:id="editGameNameField" text="editableParam"/>
+    <Label text="Edit location (PC)"/>
+    <TextField fx:id="editSaveLocationPCField" text="editableParam"/>
+    <Label text="Edit location (Steam Deck)"/>
+    <TextField fx:id="editSaveLocationSteamDeckField" text="editableParam"/>
+    <Button fx:id="saveButton" text="Save config" onAction="#handleSaveButtonAction"/>
+</VBox>
