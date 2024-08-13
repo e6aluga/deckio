@@ -98,6 +98,20 @@ public void openAddGameWindow(){
     }
 }
 
+@FXML
+public void openDeckWindow(){
+    try{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/deck.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Steam Deck Settings");
+        stage.setScene(new Scene(root, 700, 300));
+        stage.show();
+    } catch (IOException e){
+        e.printStackTrace();
+    }
+}
+
 private void handleMenuAction(String function) {
     String selectedItem = listView.getSelectionModel().getSelectedItem();
     System.out.println("Selected item: " + selectedItem + " - Action: " + function);

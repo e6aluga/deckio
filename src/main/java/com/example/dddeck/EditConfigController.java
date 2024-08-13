@@ -68,6 +68,8 @@ public class EditConfigController {
     @FXML
     private void handleSaveButtonAction() {
         updateConfig();  // Вызов метода при нажатии на кнопку
+        Stage stage = (Stage) editConfigNameField.getScene().getWindow();
+        stage.close();
     }
 
     public void setConfigName(String configName){

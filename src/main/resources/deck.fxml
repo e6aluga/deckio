@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.DeckController">
+    <Label text="IP"/>
+    <TextField fx:id="deckIpField" promptText="192.168.2.74"/>
+    <Label text="user"/>
+    <TextField fx:id="deckUserField" text="deck"/>
+    <Label text="password"/>
+    <TextField fx:id="deckPasswordField" text="1234"/>
+    <Label text="ssh port"/>
+    <TextField fx:id="deckPortField" text="22"/>
+    <Button fx:id="saveSettings" text="Save settings" onAction="#createDeckConfig"/>
+</VBox>

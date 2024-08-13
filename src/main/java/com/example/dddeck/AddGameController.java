@@ -1,6 +1,5 @@
 package com.example.dddeck;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -8,13 +7,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class ConfigManager {
+
+public class AddGameController {
 
     @FXML
     private TextField configNameField;
@@ -37,6 +34,9 @@ public class ConfigManager {
         String saveLocationSteamDeck = saveLocationSteamDeckField.getText();
 
         addConfig(configName, gameName, saveLocationPC, saveLocationSteamDeck);
+
+        Stage stage = (Stage) configNameField.getScene().getWindow();
+        stage.close();
     }
 
 

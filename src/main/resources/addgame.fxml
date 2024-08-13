@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.ConfigManager">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.AddGameController">
     <Label text="Add config name:"/>
     <TextField fx:id="configNameField" text="Config name"/>
     <Label text="Add game name:"/>

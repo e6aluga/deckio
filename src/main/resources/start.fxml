@@ -12,7 +12,7 @@
     </ListView>
 
     <Button text="Add game" onAction="#openAddGameWindow"></Button>
-    <Button text="Steam Deck settings"></Button>
+    <Button text="Steam Deck settings" onAction="#openDeckWindow"></Button>
     <Button text="Backups"></Button>
 
 </VBox>
