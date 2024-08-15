@@ -206,9 +206,9 @@ private void handleMenuAction(String function) {
         editConfigController.openUpdateConfigWindow(selectedItem);
     }
     @FXML
-    private void openBackupsAction(){
-        BackupManager backupManager = new BackupManager();
-        backupManager.backupSaveFromPC("/home/yuriy/Desktop/FlyindDeckTestBackup/", "SYKA ahahahah");
+    private void openBackupsAction() {
+        SSHManager sshManager = new SSHManager();        // Теперь вызываем метод для копирования файлов
+        sshManager.getRemoteDir("FlyingDeckTest", "192.168.2.74", "deck", "1234");
     }
 }
 

@@ -2,11 +2,10 @@ package com.example.dddeck;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.stream.Stream;
 
 import javafx.application.Application;
@@ -14,9 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.InputStream;
-import java.nio.file.*;
 
 
 public class App extends Application {
@@ -37,6 +33,12 @@ public class App extends Application {
     public static String timestamp(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
         String time = String.format("%s ", dtf.format(LocalDateTime.now()));
+        return time;
+    }
+
+    public static String timestamp_(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH:mm:ss");
+        String time = String.format("%s", dtf.format(LocalDateTime.now()));
         return time;
     }
 

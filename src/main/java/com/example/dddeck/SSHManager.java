@@ -1,14 +1,15 @@
 package com.example.dddeck;
-import java.io.IOException;
-
-import com.jcraft.jsch.*;
-
-import java.io.InputStream;
-import java.nio.file.*;
-import java.util.Vector;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Vector;
+
+import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
 
 public class SSHManager {
 
@@ -70,10 +71,20 @@ public class SSHManager {
         }
     }
 
-    public void getRemoteDir(String remoteDir, String localDir, String host, String user, String password){
+    public void getRemoteDir(String remoteDir, String host, String user, String password){
         JSch jsch = new JSch();
         Session session = null;
         ChannelSftp channelSftp = null;
+
+        System.out.println(App.timestamp() + "Creating backup from SD...");
+
+        String localDir = String.format("backups/%s/", App.timestamp());
+
+        File directory = new File(localDir);
+        if (!directory.exists()) {
+            directory.mkdirs(); 
+        }
+    
 
         try{
             session = jsch.getSession(user, host, 22);
@@ -85,6 +96,7 @@ public class SSHManager {
             channelSftp.connect();
 
             downloadFolder(channelSftp, remoteDir, localDir);
+            System.out.println(App.timestamp() + "Backup created!");
         }   catch (Exception e){
             e.printStackTrace();
         } finally {
