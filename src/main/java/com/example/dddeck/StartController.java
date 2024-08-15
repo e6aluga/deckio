@@ -93,10 +93,6 @@ public void initialize(){
 
 @FXML
 public void openAddGameWindow(){
-    System.out.println(App.timestamp() + "Timer start");
-    App.timer(5000);
-    System.out.println(App.timestamp() + "Timer end");
-
     System.out.println(App.timestamp() + "StartController openAddGameWindow()");
     try{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addgame.fxml"));
