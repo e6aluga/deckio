@@ -74,12 +74,9 @@ public class EditConfigController {
 
     public void setConfigName(String configName){
         this.configName = configName;
-        
-        System.out.println("this config name: " + configName);
     }
 
     public void updateConfig() {
-        System.out.println("sss: " + configName);
         // Получаем новые значения из полей
         String newConfigName = editConfigNameField.getText();
         String newGameName = editGameNameField.getText();
@@ -88,7 +85,6 @@ public class EditConfigController {
 
         // Создаем объект Gson
         Gson gson = new Gson();
-        System.out.println("null config name: " + configName);
         try {
             // Открываем JSON файл, чтобы прочитать его содержимое
             String configFilePath = String.format("configs/%s", configName);
@@ -113,7 +109,7 @@ public class EditConfigController {
             // Закрываем writer
             writer.close();
 
-            System.out.println("Config updated successfully!");
+            System.out.println(App.timestamp() + "Config updated successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }

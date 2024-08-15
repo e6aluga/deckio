@@ -1,6 +1,9 @@
-/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/SampleController.java
+/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/DeckController.java
+/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/EditConfigController.java
+/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/DeckData.java
 /home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/ConfigData.java
-/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/Config.java
 /home/yuriy/Desktop/FlyingDeck/src/main/java/module-info.java
+/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/StartController.java
 /home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/App.java
 /home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/AddGameController.java
+/home/yuriy/Desktop/FlyingDeck/src/main/java/com/example/dddeck/SSHManager.java

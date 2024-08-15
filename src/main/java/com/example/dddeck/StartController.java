@@ -36,6 +36,13 @@ private String selectedItem;
  
 @FXML
 public void initialize(){
+
+    // System.out.println(App.timestamp() + "StartController initialize()");
+    // SSHManager sshManager = new SSHManager();
+    // String output = sshManager.sshStatus("192.168.2.74", "deck", "1234", "22", "date");
+    // System.out.println(App.timestamp() + output);
+
+
     ContextMenu contextMenu = new ContextMenu();
 
     MenuItem menuItem1 = new MenuItem("Edit");
@@ -67,7 +74,7 @@ public void initialize(){
             cell.setOnMouseClicked(event -> {
                 if (!cell.isEmpty() && event.getButton() == MouseButton.SECONDARY) {
                     selectedItem = cell.getItem();
-                    System.out.println(selectedItem);
+                    System.out.println(App.timestamp() + "ListView selectedItem: " + selectedItem);
                 }
             });
             return cell;
@@ -86,6 +93,11 @@ public void initialize(){
 
 @FXML
 public void openAddGameWindow(){
+    System.out.println(App.timestamp() + "Timer start");
+    App.timer(5000);
+    System.out.println(App.timestamp() + "Timer end");
+
+    System.out.println(App.timestamp() + "StartController openAddGameWindow()");
     try{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addgame.fxml"));
         Parent root = loader.load();
@@ -100,6 +112,7 @@ public void openAddGameWindow(){
 
 @FXML
 public void openDeckWindow(){
+    System.out.println(App.timestamp() + "StartController openDeckWindow()");
     try{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/deck.fxml"));
         Parent root = loader.load();
@@ -124,11 +137,11 @@ private void handleMenuAction(String function) {
                 deleteConfig(selectedItem);
                 break;
             default:
-                System.out.println("Unknown function" + function);
+                System.out.println(App.timestamp() + "Unknown function" + function);
                 break;
         }
         } else {
-            System.out.println("No item selected - Action: " + function);
+            System.out.println(App.timestamp() + "No item selected - Action: " + function);
         }
 }
 
@@ -178,21 +191,28 @@ private void handleMenuAction(String function) {
     }
 // функция в контекстном меню ListView для удаления конфига
     private boolean deleteConfig(String selectedItem){
+        System.out.println(App.timestamp() + "StartController deleteConfig()");
         File file = new File(String.format("configs/%s", selectedItem));
         if (file.exists()){
             return file.delete();
         } else {
-            System.out.println("File not found: " + selectedItem);
+            System.out.println(App.timestamp() + "File not found: " + selectedItem);
             return false;
         }
     }
 
 // функция для редактирования конфига в ListView
     private void editConfig(String selectedItem){
+        System.out.println(App.timestamp() + "StartController editConfig()");
         //todo
         EditConfigController editConfigController = new EditConfigController();
         editConfigController.setConfigName(selectedItem);
         editConfigController.openUpdateConfigWindow(selectedItem);
+    }
+    @FXML
+    private void openBackupsAction(){
+        BackupManager backupManager = new BackupManager();
+        backupManager.backupSaveFromPC("/home/yuriy/Desktop/FlyindDeckTestBackup/", "SYKA ahahahah");
     }
 }
 
