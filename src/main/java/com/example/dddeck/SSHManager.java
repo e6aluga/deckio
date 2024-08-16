@@ -71,14 +71,12 @@ public class SSHManager {
         }
     }
 
-    public void getRemoteDir(String remoteDir, String host, String user, String password){
+    public void getRemoteDir(String remoteDir, String localDir, String host, String user, String password){
         JSch jsch = new JSch();
         Session session = null;
         ChannelSftp channelSftp = null;
 
-        System.out.println(App.timestamp() + "Creating backup from SD...");
-
-        String localDir = String.format("backups/%s/", App.timestamp());
+        System.out.println(App.timestamp() + "Downloading save from SD...");
 
         File directory = new File(localDir);
         if (!directory.exists()) {

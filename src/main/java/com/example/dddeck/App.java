@@ -1,5 +1,6 @@
 package com.example.dddeck;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -72,6 +73,41 @@ public class App extends Application {
                     System.err.println("Failed to copy: " + sourcePath + " -> " + e.getMessage());
                 }
             });
+        }
+    }
+    public static void getSaveFromSD(String pcDir, String sdDir){
+        System.out.println(timestamp() + "Getting saves from Steam Deck");
+
+        BackupManager backupManager = new BackupManager();
+        SSHManager sshManager = new SSHManager();
+        File folder = new File("backups"); // директория, где хранятся сейвы игры для очистки
+
+        String pcDir_ = String.format("%s/", pcDir); // pcDir, но со слешем
+
+        backupManager.backupSaveFromPC(pcDir, "test"); // делаем бекап перед заменой файлов с дека
+
+        cleanDirectory(folder); // чистим локальную директорию перед новыми сейвами
+
+        sshManager.getRemoteDir(sdDir, pcDir_, "192.168.2.74", "deck", "1234"); // загружаем сейвы с дека и заменяем файлы новыми
+
+        System.out.println(timestamp() + "Completed!");
+    }
+
+    public static void cleanDirectory(File directory) {
+        // Проверяем, что указанный путь является директорией
+        if (directory.isDirectory()) {
+            // Получаем список всех файлов и директорий внутри данной директории
+            File[] files = directory.listFiles();
+            if (files != null) { // Проверяем, что список файлов не равен null
+                for (File file : files) {
+                    // Если это директория, то рекурсивно очищаем её
+                    if (file.isDirectory()) {
+                        cleanDirectory(file);
+                    }
+                    // Удаляем файл или пустую директорию
+                    file.delete();
+                }
+            }
         }
     }
     
