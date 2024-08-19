@@ -6,12 +6,19 @@ import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javafx.stage.DirectoryChooser;
+import java.io.File;
 
-public class AddGameController {
+
+public class AddGameController{
 
     @FXML
     private TextField configNameField;
@@ -27,6 +34,7 @@ public class AddGameController {
         System.out.println(App.timestamp() + "AddGameController initialize()");
     }
 
+
     @FXML
     public void saveGame() {
         System.out.println(App.timestamp() + "AddGameController saveGame()");
@@ -41,6 +49,17 @@ public class AddGameController {
         stage.close();
     }
 
+    @FXML
+    public void handleChooseDirectory(){
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        Stage stage = (Stage) saveLocationPCField.getScene().getWindow();
+        File selectedDirectory = directoryChooser.showDialog(stage);
+
+        if (selectedDirectory != null){
+            saveLocationPCField.setText(selectedDirectory.getAbsolutePath());
+        }
+
+    }
 
     public void addConfig(String configName, String gameName, String saveLocationPC, String saveLocationSteamDeck) {
         System.out.println(App.timestamp() + "AddGameController addConfig()");

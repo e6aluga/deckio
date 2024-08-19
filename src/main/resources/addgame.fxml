@@ -10,12 +10,14 @@
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.AddGameController">
     <Label text="Add config name:"/>
-    <TextField fx:id="configNameField" text="Config name"/>
+    <TextField fx:id="configNameField" promptText="Config name"/>
     <Label text="Add game name:"/>
-    <TextField fx:id="gameNameField" text="Horizon Zero Dawn"/>
+    <TextField fx:id="gameNameField" promptText="Ghost of Tsushima"/>
     <Label text="Save location (PC)"/>
-    <TextField fx:id="saveLocationPCField" text="example: C:\Users\[Username]\Documents\Ghost of Tsushima DIRECTOR’S CUT\"/>
+    <TextField fx:id="saveLocationPCField" promptText="C:\Users\e6aluga\Documents\Ghost of Tsushima"/>
+    <Button text="Open in File Explorer" onAction="#handleChooseDirectory"/>
     <Label text="Save location (Steam Deck)"/>
-    <TextField fx:id="saveLocationSteamDeckField" text="example: /Home/Games/PrefixGame/Game"/>
+    <Label text="Warning! The program is under testing and there is no protection against accidental data erasure! Be extremely careful when choosing a directory"/>
+    <TextField fx:id="saveLocationSteamDeckField" promptText="/Home/Games/PrefixGame/Game"/>
     <Button fx:id="saveButton" text="Save config" onAction="#saveGame"/>
 </VBox>
