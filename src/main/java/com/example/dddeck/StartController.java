@@ -54,14 +54,14 @@ public void initialize(){
     contextMenu.getItems().addAll(menuItem1, menuItem2);
 
     // фабрика ячеек ListView
-    listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>(){
+    listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
         @Override
-        public ListCell<String> call (ListView<String> listView){
-            ListCell<String> cell = new ListCell<>(){
+        public ListCell<String> call(ListView<String> listView) {
+            ListCell<String> cell = new ListCell<>() {
                 @Override
-                protected void updateItem(String item, boolean empty){
+                protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
-                    if (empty || item == null){
+                    if (empty || item == null) {
                         setText(null);
                         setContextMenu(null);
                     } else {
@@ -70,16 +70,26 @@ public void initialize(){
                     }
                 }
             };
-            // обработчик событий на ListView
+    
+            // Обработчик событий на ListView
             cell.setOnMouseClicked(event -> {
                 if (!cell.isEmpty() && event.getButton() == MouseButton.SECONDARY) {
                     selectedItem = cell.getItem();
-                    System.out.println(App.timestamp() + "ListView selectedItem: " + selectedItem);
+                    System.out.println(App.timestamp() + " ListView selectedItem: " + selectedItem);
+                }
+    
+                if (!cell.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    String selectedItem = cell.getItem();
+                    System.out.println("Double clicked on: " + selectedItem);
+                    // Здесь можно вызвать метод для обработки двойного клика
+                    openGameWindow(selectedItem);
                 }
             });
+    
             return cell;
-        };
+        }
     });
+    
 
 
     
@@ -122,19 +132,12 @@ public void openDeckWindow(){
 }
 
 @FXML
-public void openGameWindow(){
+public void openGameWindow(String name) {
     System.out.println(App.timestamp() + "openGameWindow()");
-    try{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/deck.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Steam Deck Settings");
-        stage.setScene(new Scene(root, 700, 300));
-        stage.show();
-    } catch (IOException e){
-        e.printStackTrace();
-    }
+    Game game = new Game();
+    game.init(name);  // Теперь контроллер создаётся и связывается с FXML правильно
 }
+
 
 private void handleMenuAction(String function) {
     String selectedItem = listView.getSelectionModel().getSelectedItem();
@@ -224,5 +227,6 @@ private void handleMenuAction(String function) {
     private void openBackupsAction() {
        App.getSaveFromSD("PC", "FlyingDeck");
     }
+
 }
 
