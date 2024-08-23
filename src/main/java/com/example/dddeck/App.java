@@ -32,13 +32,13 @@ public class App extends Application {
     }
 
     public static String timestamp(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd HH mm ss");
         String time = String.format("%s ", dtf.format(LocalDateTime.now()));
         return time;
     }
 
     public static String timestamp_(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH_mmss");
         String time = String.format("%s", dtf.format(LocalDateTime.now()));
         return time;
     }
@@ -75,20 +75,21 @@ public class App extends Application {
             });
         }
     }
-    public static void getSaveFromSD(String pcDir, String sdDir){
+    public static void getSaveFromSD(String name, String pcDir, String sdDir, String host, String user, String password){
         System.out.println(timestamp() + "Getting saves from Steam Deck");
 
         BackupManager backupManager = new BackupManager();
         SSHManager sshManager = new SSHManager();
         File folder = new File("backups"); // директория, где хранятся сейвы игры для очистки
+        File savePcFolder = new File(pcDir);
 
         String pcDir_ = String.format("%s/", pcDir); // pcDir, но со слешем
 
         backupManager.backupSaveFromPC(pcDir, "test"); // делаем бекап перед заменой файлов с дека
 
-        cleanDirectory(folder); // чистим локальную директорию перед новыми сейвами
+        cleanDirectory(savePcFolder); // чистим локальную директорию перед новыми сейвами
 
-        sshManager.getRemoteDir(sdDir, pcDir_, "192.168.2.74", "deck", "1234"); // загружаем сейвы с дека и заменяем файлы новыми
+        sshManager.getRemoteDir(sdDir, pcDir_, host, user, password); // загружаем сейвы с дека и заменяем файлы новыми
 
         System.out.println(timestamp() + "Completed!");
     }

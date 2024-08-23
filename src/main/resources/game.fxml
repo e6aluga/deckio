@@ -14,6 +14,5 @@
     <Label fx:id="sdLocationLabel" text="sdLocation"/>
     <Label fx:id="sdStatusLabel" text="Steam Deck status: loading..."/>
     <Button fx:id="sendToSteamDeckBtn" text="PC to SteamDeck"/>
-    <Button fx:id="getFromSteamDeckBtn" text="PC from SteamDeck"/>
-
+    <Button fx:id="getFromSteamDeckBtn" text="SteamDeck to PC" onAction="#steamDeckToPc"/>
 </VBox>

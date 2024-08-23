@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 public class Game {
 
+    private String name;
     private String game;
     private String pcLocation;
     private String sdLocation;
@@ -71,6 +72,7 @@ public class Game {
 
             Stage stage = new Stage();
             stage.setTitle(name);
+            this.name = name;
             stage.setScene(new Scene(root, 700, 300));
             stage.show();
         } catch (IOException e) {
@@ -141,6 +143,10 @@ public class Game {
             sdStatusLabel.setText("Steam Deck status: error!");
             return false;
         }
+    }
+
+    public void steamDeckToPc(){
+        App.getSaveFromSD(this.name, this.pcLocation, this.sdLocation, this.host, this.user, this.password);
     }
 }
 

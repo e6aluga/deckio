@@ -225,7 +225,7 @@ private void handleMenuAction(String function) {
     }
     @FXML
     private void openBackupsAction() {
-       App.getSaveFromSD("PC", "FlyingDeck");
+       
     }
 
 }
