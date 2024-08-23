@@ -4,9 +4,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Map;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.time.chrono.ThaiBuddhistChronology;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.jcraft.jsch.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -147,6 +155,121 @@ public class Game {
 
     public void steamDeckToPc(){
         App.getSaveFromSD(this.name, this.pcLocation, this.sdLocation, this.host, this.user, this.password);
+        
+    }
+
+    public void pcToSteamDeck(){
+        BackupManager backupManager = new BackupManager();
+        String path = String.format("backups/[SD] " + App.timestamp_() + " " + this.name);
+        backupManager.backupSaveFromSD(this.name, this.sdLocation, path, this.host, this.user, this.password);
+        copyFilesToSd(this.sdLocation, this.pcLocation);
+        
+    }
+
+    public void copyFilesToSd(String remoteDirectoryPath, String localDirectoryPath) {
+        Session session = null;
+        ChannelExec execChannel = null;
+        ChannelSftp sftpChannel = null;
+
+        try {
+            // Устанавливаем соединение
+            JSch jsch = new JSch();
+            session = jsch.getSession(this.user, this.host, 22);
+            session.setPassword(this.password);
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+
+            // Создаем команду для очистки папки
+            String command = String.format("find %s -mindepth 1 -delete", remoteDirectoryPath);
+
+            // Выполняем команду очистки папки
+            execChannel = (ChannelExec) session.openChannel("exec");
+            execChannel.setCommand(command);
+            execChannel.setInputStream(null);
+            execChannel.setErrStream(System.err);
+
+            java.io.InputStream in = execChannel.getInputStream();
+            execChannel.connect();
+
+            byte[] tmp = new byte[1024];
+            while (true) {
+                while (in.available() > 0) {
+                    int i = in.read(tmp, 0, 1024);
+                    if (i < 0) break;
+                    System.out.print(new String(tmp, 0, i));
+                }
+                if (execChannel.isClosed()) {
+                    if (in.available() > 0) continue;
+                    System.out.println("Exit Status: " + execChannel.getExitStatus());
+                    break;
+                }
+                Thread.sleep(1000);
+            }
+            execChannel.disconnect();
+
+            System.out.println("Папка успешно очищена.");
+
+            // Подключаемся к SFTP каналу
+            sftpChannel = (ChannelSftp) session.openChannel("sftp");
+            sftpChannel.connect();
+
+            // Копируем файлы с удаленного устройства на локальный ПК
+            copyFilesFromRemote(sftpChannel, remoteDirectoryPath, localDirectoryPath);
+
+            // Отправляем файлы обратно в очищенную папку
+            copyFilesToRemote(sftpChannel, localDirectoryPath, remoteDirectoryPath);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Освобождаем ресурсы
+            if (execChannel != null && execChannel.isConnected()) {
+                execChannel.disconnect();
+            }
+            if (sftpChannel != null && sftpChannel.isConnected()) {
+                sftpChannel.disconnect();
+            }
+            if (session != null && session.isConnected()) {
+                session.disconnect();
+            }
+        }
+    }
+
+    private void copyFilesFromRemote(ChannelSftp sftpChannel, String remoteDirectoryPath, String localDirectoryPath) throws SftpException, Exception {
+        Vector<ChannelSftp.LsEntry> files = sftpChannel.ls(remoteDirectoryPath);
+
+        // Создаем локальную папку, если она не существует
+        Path localDirPath = Paths.get(localDirectoryPath);
+        if (!Files.exists(localDirPath)) {
+            Files.createDirectories(localDirPath);
+        }
+
+        for (ChannelSftp.LsEntry entry : files) {
+            if (!entry.getAttrs().isDir()) {
+                // Копируем каждый файл с удаленного устройства на локальный ПК
+                String remoteFilePath = remoteDirectoryPath + "/" + entry.getFilename();
+                String localFilePath = localDirectoryPath + "/" + entry.getFilename();
+                try (FileOutputStream fos = new FileOutputStream(localFilePath)) {
+                    sftpChannel.get(remoteFilePath, fos);
+                    System.out.println("Скачан файл: " + entry.getFilename());
+                }
+            }
+        }
+    }
+
+    private void copyFilesToRemote(ChannelSftp sftpChannel, String localDirectoryPath, String remoteDirectoryPath) throws SftpException, Exception {
+        Files.list(Paths.get(localDirectoryPath)).forEach(path -> {
+            if (Files.isRegularFile(path)) {
+                String localFilePath = path.toString();
+                String remoteFilePath = remoteDirectoryPath + "/" + path.getFileName().toString();
+                try {
+                    sftpChannel.put(localFilePath, remoteFilePath);
+                    System.out.println("Загружен файл: " + path.getFileName().toString());
+                } catch (SftpException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
 

@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class BackupManager {
 
-        public void backupSaveFromPC(String path, String dirName){
+    public void backupSaveFromPC(String path, String dirName){
         Path sourceDir = Paths.get(path);
         Path targetDir = Paths.get(String.format("backups/" + "[PC] " + App.timestamp() + "%s/", dirName));
 
@@ -18,4 +18,9 @@ public class BackupManager {
         }
     }
 
+    public void backupSaveFromSD(String name, String remoteDir, String localDir, String host, String user, String password){
+        SSHManager sshManager = new SSHManager();
+        
+        sshManager.getRemoteDir(remoteDir, localDir, host, user, password);
+    }
 }
