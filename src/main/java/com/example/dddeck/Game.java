@@ -216,8 +216,8 @@ public class Game {
             // Копируем файлы с удаленного устройства на локальный ПК
             copyFilesFromRemote(sftpChannel, remoteDirectoryPath, localDirectoryPath);
 
-            // Отправляем файлы обратно в очищенную папку
-            copyFilesToRemote(sftpChannel, localDirectoryPath, remoteDirectoryPath);
+            // Отправляем файлы и папки обратно в очищенную папку
+            copyFilesAndDirectoriesToRemote(sftpChannel, localDirectoryPath, remoteDirectoryPath);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -257,17 +257,26 @@ public class Game {
         }
     }
 
-    private void copyFilesToRemote(ChannelSftp sftpChannel, String localDirectoryPath, String remoteDirectoryPath) throws SftpException, Exception {
-        Files.list(Paths.get(localDirectoryPath)).forEach(path -> {
-            if (Files.isRegularFile(path)) {
-                String localFilePath = path.toString();
-                String remoteFilePath = remoteDirectoryPath + "/" + path.getFileName().toString();
-                try {
-                    sftpChannel.put(localFilePath, remoteFilePath);
-                    System.out.println("Загружен файл: " + path.getFileName().toString());
-                } catch (SftpException e) {
-                    e.printStackTrace();
+    private void copyFilesAndDirectoriesToRemote(ChannelSftp sftpChannel, String localDirectoryPath, String remoteDirectoryPath) throws SftpException, Exception {
+        Files.walk(Paths.get(localDirectoryPath)).forEach(path -> {
+            try {
+                if (Files.isDirectory(path)) {
+                    // Создаем папку на удаленном устройстве
+                    String remoteDirPath = remoteDirectoryPath + "/" + Paths.get(localDirectoryPath).relativize(path).toString().replace("\\", "/");
+                    try {
+                        sftpChannel.mkdir(remoteDirPath);
+                        System.out.println("Создана папка: " + remoteDirPath);
+                    } catch (SftpException e) {
+                        // Папка может уже существовать, игнорируем ошибку
+                    }
+                } else if (Files.isRegularFile(path)) {
+                    // Загружаем файл на удаленное устройство
+                    String remoteFilePath = remoteDirectoryPath + "/" + Paths.get(localDirectoryPath).relativize(path).toString().replace("\\", "/");
+                    sftpChannel.put(path.toString(), remoteFilePath);
+                    System.out.println("Загружен файл: " + remoteFilePath);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
