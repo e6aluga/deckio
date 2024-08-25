@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.StartController" stylesheets="@styles.css">
+    <!-- MenuBar in the top section -->
+    <top>
+        <MenuBar fx:id="menuBar">
+        </MenuBar>
+    </top>
+
+    <!-- Content in the center section -->
+    <center>
+        <ListView fx:id="listView" prefWidth="200" prefHeight="150"/>
+    </center>
+
+    <!-- Status Label in the bottom section -->
+    <bottom>
+        <Label fx:id="status" text="Status: connecting..." BorderPane.alignment="CENTER"/>
+    </bottom>
+</BorderPane>
 
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.StartController">
-    <ListView fx:id="listView" prefWidth="200" prefHeight="150">
-    </ListView>
 
-    <Button text="Add game" onAction="#openAddGameWindow"></Button>
-    <Button text="Steam Deck settings" onAction="#openDeckWindow"></Button>
-    <Button text="Backups" onAction="#openBackupsAction"></Button>
 
-</VBox>
+

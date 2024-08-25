@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.DeckController">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.DeckController" stylesheets="@styles.css">
     <Label text="IP"/>
     <TextField fx:id="deckIpField" promptText="192.168.2.74"/>
     <Label text="user"/>

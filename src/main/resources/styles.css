@@ -1,0 +1,105 @@
+/* Общий фон для всего приложения */
+.root {
+    -fx-background-color: #1E1E1E; /* Темный фон для всего приложения */
+    background-color: #1E1E1E;
+}
+
+/* Стили для кнопок */
+.button {
+    -fx-background-color: #2A2A2A; /* Цвет фона */
+    -fx-text-fill: #E0E0E0;         /* Цвет текста */
+    -fx-font-size: 12px;            /* Размер шрифта */
+    -fx-padding: 8px 15px;          /* Внутренние отступы */
+    -fx-background-radius: 4px;     /* Радиус скругления углов */
+    -fx-border-color: #333;         /* Цвет границы */
+    -fx-border-width: 1px;          /* Ширина границы */
+}
+.button:hover {
+    -fx-background-color: #3A3A3A; /* Цвет фона при наведении */
+}
+
+/* Стили для ListView и его элементов */
+.list-view {
+    -fx-background-color: #2A2A2A; /* Цвет фона ListView */
+    -fx-border-color: #2A2A2A;     /* Цвет границы */
+}
+.list-cell {
+    -fx-text-fill: #E0E0E0;         /* Цвет текста */
+    -fx-background-color: #2A2A2A; /* Цвет фона ячейки */
+    -fx-font-size: 12px;            /* Размер шрифта */
+    -fx-padding: 8px;               /* Внутренние отступы */
+}
+.list-cell:focused, .list-cell:selected {
+    -fx-background-color: #3A3A3A; /* Цвет фона выбранной ячейки */
+    -fx-text-fill: #FFFFFF;         /* Цвет текста выбранной ячейки */
+}
+
+/* Стили для меток */
+.label {
+    -fx-text-fill: #E0E0E0;         /* Цвет текста */
+    -fx-font-size: 12px;            /* Размер шрифта */
+}
+
+/* Стили для текстовых полей */
+.text-field {
+    -fx-background-color: #2A2A2A; /* Цвет фона */
+    -fx-text-fill: #E0E0E0;         /* Цвет текста */
+    -fx-border-color: #3A3A3A;     /* Цвет границы */
+    -fx-padding: 8px;              /* Внутренние отступы */
+    -fx-font-size: 12px;           /* Размер шрифта */
+}
+
+/* Стили для контекстного меню */
+.context-menu {
+    -fx-background-color: #1E1E1E; /* Цвет фона контекстного меню */
+    -fx-border-color: #2A2A2A;     /* Цвет границы */
+    -fx-border-radius: 5px;        /* Скругление углов границы */
+}
+
+/* Стили для пунктов меню */
+.menu-item {
+    -fx-text-fill: #E0E0E0;         /* Цвет текста в пункте меню */
+    -fx-font-size: 12px;            /* Размер шрифта */
+    -fx-padding: 8px 12px;          /* Внутренние отступы */
+}
+.menu-item:hover {
+    -fx-background-color: #3A3A3A; /* Цвет фона при наведении */
+}
+
+/* Стили для MenuBar */
+.menu-bar {
+    -fx-background-color: #1E1E1E; /* Темный фон для MenuBar */
+    -fx-border-color: #333;         /* Цвет границы MenuBar */
+    -fx-border-width: 1px;          /* Ширина границы MenuBar */
+}
+
+/* Стили для элементов Menu */
+.menu {
+    -fx-text-fill: #E0E0E0;         /* Цвет текста элементов Menu */
+    -fx-background-color: #1E1E1E; /* Фон элементов Menu */
+    -fx-padding: 8px 12px;          /* Отступы внутри элементов Menu */
+}
+
+/* Стили для выбранного элемента Menu */
+.menu-item:selected {
+    -fx-background-color: #3A3A3A; /* Фон выбранного элемента Menu */
+}
+
+/* Стили для разделителей в меню */
+.separator-menu-item {
+    -fx-background-color: #333; /* Цвет фона разделителя меню */
+    -fx-padding: 0;             /* Убираем отступы для разделителей */
+}
+
+/* Стили для Label с идентификатором status */
+#status {
+    -fx-font-size: 14px; /* Размер шрифта */
+    -fx-text-fill: white; /* Цвет текста */
+    -fx-padding: 10px; /* Отступы вокруг текста */
+    -fx-background-color: #1E1E1E; /* Цвет фона */
+    -fx-alignment: center; /* Выравнивание текста по центру */
+    -fx-max-width: Infinity; /* Занимает всю доступную ширину */
+}
+
+
+

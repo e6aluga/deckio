@@ -13,17 +13,27 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
 
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/start.fxml"));
+        // Загрузите FXML файл
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/start.fxml"));
+        BorderPane root = loader.load();
+
+        // Создайте сцену с корневым элементом и установите ее в Stage
+        Scene scene = new Scene(root, 300, 400);
         primaryStage.setTitle("FlyingDeck");
-        primaryStage.setScene(new Scene(root, 300, 400));
-        primaryStage.show();  
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
     
 

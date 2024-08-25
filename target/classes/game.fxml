@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.Game">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.Game" stylesheets="@styles.css">
 
     <Label fx:id="gameNameLabel" text="gameName"/>
     <Label fx:id="pcLocationLabel" text="pcLocation"/>

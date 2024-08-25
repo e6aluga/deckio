@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController" stylesheets="@styles.css">
     <Label text="Edit config name:"/>
     <TextField fx:id="editConfigNameField" text="editableParam"/>
     <Label text="Edit game name:"/>
