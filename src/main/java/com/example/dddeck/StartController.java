@@ -65,7 +65,10 @@ public class StartController {
             if (sshManager.getSession() != null) {
                 status.setText("Status: connected!");
             } else {
-                status.setText("Status: timeout");
+                status.setText("Status: connected!");
+                while (sshManager.getSession() == null){
+                    sshManager.connect();
+                }
             }
         });
 
