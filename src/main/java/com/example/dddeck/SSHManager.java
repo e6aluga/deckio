@@ -10,21 +10,70 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
+import com.jcraft.jsch.Session;
 
 public class SSHManager {
 
-    public String sshExec(String host, String user, String password, String port, String command){
-        System.out.println(App.timestamp() + "SSHManager sshStatus()");
+    Session session;
+
+    String host;
+    String user;
+    String password;
+    int port = 22;
+
+    SSHManager sshManager;
+
+    public SSHManager(String host, String user, String password, int port){
+        this.host = host;
+        this.user = user;
+        this.password = password;
+        this.port = port;
+    }
+
+    public SSHManager(){
+    }
+
+    public Session connect(){
+        System.out.println(App.timestamp() + "SSHManager connect()");
+        System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
         try {
-            JSch jsch = new JSch();
-            Session session = jsch.getSession(user, host, 22); //todo: add port
-            session.setPassword(password);
+        JSch jsch = new JSch();
+        Session session = jsch.getSession(this.user, this.host, this.port);
+        session.setPassword(this.password);
+        session.setConfig("StrictHostKeyChecking", "no");
+        session.connect();
+        this.session = session;
+        System.out.println(App.timestamp() + "Session connected." + session);
+        
+        return session;
 
-            System.out.println(App.timestamp() + "\nUser: " + user + "\nPassword: " + password + "\nHost: " + host + "\nPort: " + port);
+        } catch (Exception e){
+            e.printStackTrace();
+            System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
+            System.out.println(App.timestamp() + "[e] Session: " + e);
+            return null;
+        }
+    }
 
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.connect();
+    public void disconnect(Session session) {
+        if (session != null && session.isConnected()) {
+            session.disconnect();
+            System.out.println(App.timestamp() + "Session disconnected.");
+        } else {
+            System.out.println(App.timestamp() + "Session is already null or not connected.");
+        }
+    }
 
+    public Session getSession(){
+        return this.session;
+    }
+
+
+    public String sshExec(Session session, String command){
+        System.out.println(App.timestamp() + "SSHManager sshExec()");
+
+        try {
+            connect();
             ChannelExec channelExec = (ChannelExec)
                 session.openChannel("exec");
             channelExec.setCommand(command);
@@ -55,12 +104,8 @@ public class SSHManager {
             }
             
             channelExec.disconnect();
-            session.disconnect();
 
             String commandOutput = outputBuffer.toString();
-
-            // Now you can use commandOutput as needed
-            // System.out.println("SSH Command Output: ");
             System.out.println(App.timestamp() + "[SteamDeck] " + commandOutput);
             return commandOutput;
 

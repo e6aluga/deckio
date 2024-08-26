@@ -34,6 +34,8 @@ public class Game {
     private String user;
     private String password;
 
+    private SSHManager sshManager;
+
     @FXML
     private Label gameNameLabel;
 
@@ -63,7 +65,11 @@ public class Game {
         // Метод инициализации вызывается после загрузки FXML
     }
 
-    public void init(String name) {
+    public void setSSHManager(SSHManager sshManager) {
+        this.sshManager = sshManager;
+    }
+
+    public void init(String name, SSHManager sshManager) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/game.fxml"));
             Parent root = loader.load();
@@ -71,12 +77,13 @@ public class Game {
             // Получаем контроллер, который был создан автоматически
             Game controller = loader.getController();
             controller.setName(name);  // Передаём имя игры в контроллер
+            controller.setSSHManager(sshManager); // Передаём SSHManager в контроллер
 
             // Загружаем конфигурацию игры после установки имени
             controller.loadGameConfig(name);
             controller.loadSteamDeckSettings();
             controller.updateLabels();
-            controller.checkSdStatus();
+            // controller.checkSdStatus();
 
             Stage stage = new Stage();
             stage.setTitle(name);
@@ -139,8 +146,7 @@ public class Game {
     }
 
     private boolean checkSdStatus(){
-        SSHManager sshManager = new SSHManager();
-        String status = sshManager.sshExec(this.host, this.user, this.password, "22", "date");
+        String status = sshManager.sshExec(sshManager.getSession(), "date");
         if (status != null){
             System.out.println(App.timestamp() + "checkSdStatus: successfull");
             sdStatusLabel.setText("Steam Deck status: connected!");

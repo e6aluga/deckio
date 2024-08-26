@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import com.jcraft.jsch.Session;
+import javafx.concurrent.Task;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +18,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class StartController {
+
+    private SSHManager sshManager;
+    private DeckData deckData;
 
     @FXML
     private ListView<String> listView;
@@ -28,6 +32,11 @@ public class StartController {
     private MenuBar menuBar;
 
     @FXML
+    private Label status;
+
+
+
+// Внутри метода initialize:
     public void initialize() {
         initializeContextMenu();
         setupListView();
@@ -35,6 +44,48 @@ public class StartController {
         String directoryPath = "configs/";
         updateListView(directoryPath);
         startWatching(directoryPath);
+
+        DeckData deckData = new DeckData();
+        deckData.loadSteamDeckSettings();
+
+        System.out.println(App.timestamp() + "SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
+
+        // Запуск асинхронного соединения
+        Task<Void> sshTask = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                sshManager = new SSHManager(deckData.getIp(), deckData.getUser(), deckData.getPassword(), 22);
+                sshManager.connect(); // Подключение в фоновом потоке
+                return null;
+            }
+        };
+
+        // Обновление интерфейса после успешного подключения
+        sshTask.setOnSucceeded(event -> {
+            if (sshManager.getSession() != null) {
+                status.setText("Status: connected!");
+            } else {
+                status.setText("Status: timeout");
+            }
+        });
+
+        // Обработка ошибок подключения
+        sshTask.setOnFailed(event -> {
+            Throwable exception = sshTask.getException();
+            exception.printStackTrace();
+            status.setText("Status: connection failed!");
+        });
+
+        // Запуск задачи в фоновом потоке
+        new Thread(sshTask).start();
+    }
+
+    public DeckData getDeckData(){
+        return this.deckData;
+    }
+
+    public SSHManager getSSHManager(){
+        return this.sshManager;
     }
 
     private void initializeMenuBar() {
@@ -134,7 +185,7 @@ public class StartController {
     public void openGameWindow(String name) {
         System.out.println(App.timestamp() + " openGameWindow()");
         Game game = new Game();
-        game.init(name);
+        game.init(name, sshManager); // Передаем SSHManager в Game
     }
 
     private void showWindow(String fxmlPath, String title, int width, int height) {
@@ -143,11 +194,20 @@ public class StartController {
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(loader.load(), width, height));
+    
+            // Получаем контроллер и передаем ему данные
+            Object controller = loader.getController();
+            if (controller instanceof DeckController) {
+                DeckController deckController = (DeckController) controller;
+                deckController.setDeckData(this.deckData);
+            }
+    
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
 
     private void handleMenuAction(String action) {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
