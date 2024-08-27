@@ -47,13 +47,6 @@ public class DeckController {
         deckData.setPassword(deckPassword);
         deckData.setPort(deckPort);
 
-
-        SSHManager sshManager = new SSHManager();
-        String SSHStatus = sshManager.sshExec(sshManager.getSession(), "echo 'status'");
-        // System.out.println(App.timestamp() + "Timer start");
-        // App.timer(5000);
-        // System.out.println(App.timestamp() + "Timer end");
-        if (SSHStatus != null){
             Gson gson = new Gson();
             
             try(FileWriter writer = new FileWriter("settings.json")){
@@ -65,9 +58,6 @@ public class DeckController {
             Stage stage = (Stage) deckIpField.getScene().getWindow();
             stage.close();
             System.out.println(App.timestamp() + "creating settings.json");
-        } else {
-            System.out.println(App.timestamp() + "Error: connection refused. Check your login data.");
-        }
     }
 
     public void setDeckData(DeckData deckData){

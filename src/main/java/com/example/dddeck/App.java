@@ -121,5 +121,30 @@ public class App extends Application {
             }
         }
     }
+
+    public static void openFolderInExplorer(String folderPath) {
+        String os = System.getProperty("os.name").toLowerCase();
+
+        try {
+            String command;
+            if (os.contains("win")) {
+                command = "explorer.exe " + folderPath;
+            } else if (os.contains("mac")) {
+                command = "open " + folderPath;
+            } else if (os.contains("nix") || os.contains("nux")) {
+                command = "xdg-open " + folderPath;
+            } else {
+                throw new UnsupportedOperationException("Unsupported operating system: " + os);
+            }
+
+            Runtime.getRuntime().exec(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Failed to open folder in file explorer.");
+        } catch (UnsupportedOperationException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
     
 }

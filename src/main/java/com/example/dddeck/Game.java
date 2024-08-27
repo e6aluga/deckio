@@ -138,10 +138,10 @@ public class Game {
 
     private void updateLabels() {
         if (pcLocation != null) {
-            pcLocationLabel.setText(pcLocation);
+            pcLocationLabel.setText("PC saves folder location: " + pcLocation);
         }
         if (sdLocation != null) {
-            sdLocationLabel.setText(sdLocation);
+            sdLocationLabel.setText("Steam Deck saves folder location: " + sdLocation);
         }
     }
 

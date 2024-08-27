@@ -8,13 +8,16 @@
 <?import javafx.scene.control.TextField?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController" stylesheets="@styles.css">
-    <Label text="Edit config name:"/>
+    <Label text="Config:"/>
     <TextField fx:id="editConfigNameField" text="editableParam"/>
-    <Label text="Edit game name:"/>
+    <Label text="Game:"/>
     <TextField fx:id="editGameNameField" text="editableParam"/>
-    <Label text="Edit location (PC)"/>
+    <Label text="Saves Folder (PC):"/>
     <TextField fx:id="editSaveLocationPCField" text="editableParam"/>
-    <Label text="Edit location (Steam Deck)"/>
+    <Label text="Saves Folder (Steam Deck):"/>
     <TextField fx:id="editSaveLocationSteamDeckField" text="editableParam"/>
-    <Button fx:id="saveButton" text="Save config" onAction="#handleSaveButtonAction"/>
+    <Label text="Warning! Be extremely careful when choosing a directory!"/>
+    <VBox fx:id="editgameSaveContainer">
+        <Button fx:id="saveButton" text="Save config" onAction="#handleSaveButtonAction"/>
+    </VBox>
 </VBox>

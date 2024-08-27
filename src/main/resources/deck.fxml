@@ -8,13 +8,15 @@
 <?import javafx.scene.control.TextField?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.DeckController" stylesheets="@styles.css">
-    <Label text="IP"/>
+    <Label text="ip:"/>
     <TextField fx:id="deckIpField" promptText="192.168.2.74"/>
-    <Label text="user"/>
-    <TextField fx:id="deckUserField" text="deck"/>
-    <Label text="password"/>
-    <TextField fx:id="deckPasswordField" text="1234"/>
-    <Label text="ssh port"/>
-    <TextField fx:id="deckPortField" text="22"/>
-    <Button fx:id="saveSettings" text="Save settings" onAction="#createDeckConfig"/>
+    <Label text="user:"/>
+    <TextField fx:id="deckUserField" promptText="deck"/>
+    <Label text="password:"/>
+    <TextField fx:id="deckPasswordField" promptText="1234"/>
+    <Label text="ssh port:"/>
+    <TextField fx:id="deckPortField" promptText="22" text="22"/>
+    <VBox fx:id="saveSettingsContainer">
+        <Button fx:id="saveSettings" text="Save settings" onAction="#createDeckConfig"/>
+    </VBox>
 </VBox>

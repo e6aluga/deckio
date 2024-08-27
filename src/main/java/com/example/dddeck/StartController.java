@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import com.jcraft.jsch.Session;
 import javafx.concurrent.Task;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +24,7 @@ public class StartController {
 
     private SSHManager sshManager;
     private DeckData deckData;
+    Session session;
 
     @FXML
     private ListView<String> listView;
@@ -36,53 +40,80 @@ public class StartController {
 
 
 
-// Внутри метода initialize:
     public void initialize() {
+        // Инициализируем DeckData
+        deckData = new DeckData();
+        deckData.loadSteamDeckSettings();
         initializeContextMenu();
         setupListView();
         initializeMenuBar();
         String directoryPath = "configs/";
         updateListView(directoryPath);
         startWatching(directoryPath);
-
-        DeckData deckData = new DeckData();
-        deckData.loadSteamDeckSettings();
-
-        System.out.println(App.timestamp() + "SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
-
-        // Запуск асинхронного соединения
+    
+        System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
+    
+        if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
+            attemptConnection(); // Запускаем подключение
+        } else {
+            System.out.println("Failed to initialize DeckData. Please check your settings.");
+            status.setText("Failed to load DeckData.");
+        }
+    }
+    
+    private void attemptConnection() {
         Task<Void> sshTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
-                sshManager = new SSHManager(deckData.getIp(), deckData.getUser(), deckData.getPassword(), 22);
-                sshManager.connect(); // Подключение в фоновом потоке
+                while (sshManager == null || sshManager.getSession() == null || !sshManager.getSession().isConnected()) {
+                    try {
+                        if (sshManager != null) {
+                            sshManager.disconnect(session); // Закрываем старую сессию, если она существует
+                        }
+    
+                        // Проверяем, что deckData инициализирован
+                        if (deckData == null) {
+                            System.out.println("DeckData is still null.");
+                            return null; // Прекращаем задачу, если deckData не инициализирован
+                        }
+    
+                        sshManager = new SSHManager(deckData.getIp(), deckData.getUser(), deckData.getPassword(), 22);
+                        session = sshManager.connect();
+    
+                        if (session != null && session.isConnected()) {
+                            break; // Прерываем цикл, если подключение успешно
+                        }
+    
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Thread.sleep(5000); // Задержка перед повторной попыткой
+                    }
+                }
                 return null;
             }
         };
-
-        // Обновление интерфейса после успешного подключения
+    
         sshTask.setOnSucceeded(event -> {
-            if (sshManager.getSession() != null) {
+            if (session != null && session.isConnected()) {
                 status.setText("Status: connected!");
-            } else {
-                status.setText("Status: connected!");
-                while (sshManager.getSession() == null){
-                    sshManager.connect();
-                }
+                System.out.println(App.timestamp() + " Successfully connected to SSH.");
             }
         });
-
-        // Обработка ошибок подключения
+    
         sshTask.setOnFailed(event -> {
             Throwable exception = sshTask.getException();
             exception.printStackTrace();
-            status.setText("Status: connection failed!");
+            status.setText("Status: connection failed, retrying...");
+            attemptConnection(); // Если возникла ошибка, пробуем снова
         });
-
-        // Запуск задачи в фоновом потоке
+    
         new Thread(sshTask).start();
     }
 
+    
+
+
+        
     public DeckData getDeckData(){
         return this.deckData;
     }
@@ -102,18 +133,15 @@ public class StartController {
         MenuItem exitItem = new MenuItem("Exit");
         addItem.setOnAction(e -> openAddGameWindow());
         sdItem.setOnAction(e -> openDeckWindow());
-        exitItem.setOnAction(e -> System.exit(0)); // Пример действия для выхода из приложения
+        backupsItem.setOnAction(e -> openBackups());
+        exitItem.setOnAction(e -> System.exit(0));
 
         fileMenu.getItems().addAll(addItem, sdItem, settingsItem, backupsItem, separator, exitItem);
 
         Menu helpMenu = new Menu("About");
-        MenuItem helpItem = new MenuItem("About");
-        helpItem.setOnAction(e -> {
-            // Логика для отображения информации о приложении
+        helpMenu.setOnAction(e -> {
             System.out.println("Help menu item clicked");
         });
-
-        helpMenu.getItems().add(helpItem);
 
         // Добавьте Menu в MenuBar
         menuBar.getMenus().addAll(fileMenu, helpMenu);
@@ -171,12 +199,12 @@ public class StartController {
 
     @FXML
     public void openAddGameWindow() {
-        showWindow("/addgame.fxml", "Add game", 700, 300);
+        showWindow("/addgame.fxml", "Add", 700, 350);
     }
 
     @FXML
     public void openDeckWindow() {
-        showWindow("/deck.fxml", "Steam Deck Settings", 700, 300);
+        showWindow("/deck.fxml", "Steam Deck Settings", 700, 270);
     }
 
     @FXML
@@ -295,6 +323,11 @@ public class StartController {
         EditConfigController editConfigController = new EditConfigController();
         editConfigController.setConfigName(selectedItem);
         editConfigController.openUpdateConfigWindow(selectedItem);
+    }
+
+    @FXML
+    private void openBackups(){
+        App.openFolderInExplorer("backups");
     }
 }
 

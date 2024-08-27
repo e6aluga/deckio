@@ -101,5 +101,78 @@
     -fx-max-width: Infinity; /* Занимает всю доступную ширину */
 }
 
+#gameWindow{
+    -fx-font-size:14px;
+    -fx-padding: 10px; /* Отступы вокруг текста */
+}
+/* Стили для контейнера кнопок */
+#buttonContainer {
+    -fx-spacing: 10; /* Расстояние между кнопками */
+    -fx-alignment: center; /* Выравнивание кнопок внутри контейнера */
+    -fx-padding: 10; /* Внутренние отступы контейнера */
+    -fx-pref-height: 50; /* Высота контейнера (опционально) */
+}
 
+#gameLoadbarContainer{
+    -fx-pref-height: 100;
+}
 
+/* Стили для кнопок */
+#sendToSteamDeckBtn, #getFromSteamDeckBtn {
+    -fx-background-color: #007bff; /* Цвет фона кнопок */
+    -fx-text-fill: white; /* Цвет текста кнопок */
+    -fx-padding: 10 20; /* Внутренние отступы кнопок */
+    -fx-font-size: 14px; /* Размер шрифта текста кнопок */
+}
+
+/* Дополнительные стили для кнопок при наведении курсора */
+#sendToSteamDeckBtn:hover, #getFromSteamDeckBtn:hover {
+    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+}
+#addGameWindow{
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+#addGameSaveButton{
+    -fx-padding: 10px 0 0 0;
+    -fx-alignment: center;
+    -fx-max-width: Infinity;
+
+}
+
+#addGameSaveButton #saveButton{
+    -fx-background-color: #007bff;
+    -fx-text-fill: white; /* Цвет текста кнопок */
+}
+#addGameSaveButton #saveButton:hover{
+    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+}
+
+#addGameOpenInExplorer{
+    -fx-margin: 10px 0 0 0;
+}
+#saveSettingsContainer{
+    -fx-padding: 10px 0 0 0;
+    -fx-alignment: center;
+    -fx-max-width: Infinity;
+}
+#saveSettingsContainer #saveSettings{
+    -fx-background-color: #007bff;
+    -fx-text-fill: white; /* Цвет текста кнопок */
+}
+
+#saveSettingsContainer #saveSettings:hover{
+    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+}
+#editgameSaveContainer{
+    -fx-padding: 10px 0 0 0;
+    -fx-alignment: center;
+    -fx-max-width: Infinity;
+}
+#editgameSaveContainer #saveButton{
+    -fx-background-color: #007bff;
+    -fx-text-fill: white; /* Цвет текста кнопок */
+}
+#editgameSaveContainer #saveButton:hover{
+    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+}
