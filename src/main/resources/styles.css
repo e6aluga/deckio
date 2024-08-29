@@ -176,3 +176,15 @@
 #editgameSaveContainer #saveButton:hover{
     -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
 }
+#progressIndicator {
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-accent: white;
+}
+#bottomStatusContainer {
+    -fx-alignment: center;
+}
+#hboxTextField{
+    -fx-width: 100%;
+}
+

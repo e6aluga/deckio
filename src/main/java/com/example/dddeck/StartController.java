@@ -13,6 +13,7 @@ import javafx.concurrent.Task;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
+import javafx.scene.control.Alert.AlertType;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +26,8 @@ public class StartController {
     private SSHManager sshManager;
     private DeckData deckData;
     Session session;
-
+    @FXML
+    private ProgressIndicator progressIndicator;
     @FXML
     private ListView<String> listView;
 
@@ -37,8 +39,6 @@ public class StartController {
 
     @FXML
     private Label status;
-
-
 
     public void initialize() {
         // Инициализируем DeckData
@@ -52,7 +52,7 @@ public class StartController {
         startWatching(directoryPath);
     
         System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
-    
+
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
             attemptConnection(); // Запускаем подключение
         } else {
@@ -79,7 +79,7 @@ public class StartController {
     
                         sshManager = new SSHManager(deckData.getIp(), deckData.getUser(), deckData.getPassword(), 22);
                         session = sshManager.connect();
-    
+                        Thread.sleep(2000);
                         if (session != null && session.isConnected()) {
                             break; // Прерываем цикл, если подключение успешно
                         }
@@ -92,10 +92,11 @@ public class StartController {
                 return null;
             }
         };
-    
+       
         sshTask.setOnSucceeded(event -> {
             if (session != null && session.isConnected()) {
                 status.setText("Status: connected!");
+                progressIndicator.setVisible(false);
                 System.out.println(App.timestamp() + " Successfully connected to SSH.");
             }
         });
@@ -103,17 +104,17 @@ public class StartController {
         sshTask.setOnFailed(event -> {
             Throwable exception = sshTask.getException();
             exception.printStackTrace();
+            progressIndicator.setVisible(true);
             status.setText("Status: connection failed, retrying...");
             attemptConnection(); // Если возникла ошибка, пробуем снова
         });
     
+
         new Thread(sshTask).start();
+
+
     }
 
-    
-
-
-        
     public DeckData getDeckData(){
         return this.deckData;
     }
@@ -135,6 +136,8 @@ public class StartController {
         sdItem.setOnAction(e -> openDeckWindow());
         backupsItem.setOnAction(e -> openBackups());
         exitItem.setOnAction(e -> System.exit(0));
+
+        
 
         fileMenu.getItems().addAll(addItem, sdItem, settingsItem, backupsItem, separator, exitItem);
 
@@ -187,7 +190,12 @@ public class StartController {
                             selectedItem = cell.getItem();
                             System.out.println(App.timestamp() + " ListView selectedItem: " + selectedItem);
                         } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                            if (status.getText().equals("Status: connected!")){
                             openGameWindow(cell.getItem());
+                            } else {
+                                showErrorAlert("Check your connection");
+                            }
+                    
                         }
                     }
                 });
@@ -199,12 +207,12 @@ public class StartController {
 
     @FXML
     public void openAddGameWindow() {
-        showWindow("/addgame.fxml", "Add", 700, 350);
+        showWindow("/addgame.fxml", "Add", 700, 430);
     }
 
     @FXML
     public void openDeckWindow() {
-        showWindow("/deck.fxml", "Steam Deck Settings", 700, 270);
+        showWindow("/deck.fxml", "Steam Deck Settings", 700, 470);
     }
 
     @FXML
@@ -214,9 +222,10 @@ public class StartController {
 
     @FXML
     public void openGameWindow(String name) {
-        System.out.println(App.timestamp() + " openGameWindow()");
-        Game game = new Game();
-        game.init(name, sshManager); // Передаем SSHManager в Game
+        // Правильное сравнение строк с использованием equals
+            System.out.println(App.timestamp() + "openGameWindow()");
+            Game game = new Game();
+            game.init(name, sshManager);
     }
 
     private void showWindow(String fxmlPath, String title, int width, int height) {
@@ -271,6 +280,14 @@ public class StartController {
             });
         }
     }
+public void showErrorAlert(String errorMessage) {
+    Alert alert = new Alert(AlertType.ERROR);
+    alert.setTitle("Error");
+    alert.setHeaderText("An error occurred");
+    alert.setContentText(errorMessage);
+
+    alert.showAndWait();
+}
 
     private void startWatching(String directoryPath) {
         try {
@@ -319,7 +336,6 @@ public class StartController {
 
     private void editConfig(String selectedItem) {
         System.out.println(App.timestamp() + " StartController editConfig()");
-        // TODO: Реализовать редактирование конфига
         EditConfigController editConfigController = new EditConfigController();
         editConfigController.setConfigName(selectedItem);
         editConfigController.openUpdateConfigWindow(selectedItem);

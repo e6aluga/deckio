@@ -9,14 +9,14 @@
 
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.AddGameController" stylesheets="@styles.css" fx:id="addGameWindow">
-    <Label text="Config:"/>
+    <Label text="Config:" style="-fx-padding: 10px"/>
     <TextField fx:id="configNameField" promptText="Elden Ring"/>
-    <Label text="Game:"/>
+    <Label text="Game:" style="-fx-padding: 10px"/>
     <TextField fx:id="gameNameField" promptText="Elden Ring"/>
-    <Label text="Saves Folder (PC):"/>
+    <Label text="Saves Folder (PC):" style="-fx-padding: 10px"/>
     <TextField fx:id="saveLocationPCField" promptText="C:\Users\[user]\AppData\Roaming\EldenRing"/>
     <Button text="Open in File Explorer" onAction="#handleChooseDirectory" fx:id="addGameOpenInExplorer"/>
-    <Label text="Saves Folder (Steam Deck):"/>
+    <Label text="Saves Folder (Steam Deck):" style="-fx-padding: 10px"/>
     <TextField fx:id="saveLocationSteamDeckField" promptText="/home/deck/Games/prefix/drive_c/users/deck/AppData/Roaming/EldenRing"/>
     <Label text="Warning! Be extremely careful when choosing a directory!"/>
     <VBox fx:id="addGameSaveButton">

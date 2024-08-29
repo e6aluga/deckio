@@ -16,11 +16,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jcraft.jsch.*;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.stage.Stage;
 
 
@@ -48,6 +50,9 @@ public class Game {
     @FXML
     private Label sdStatusLabel;
 
+    @FXML
+    private ProgressIndicator progressIndicator;
+
     public Game() {
         // Конструктор по умолчанию
     }
@@ -62,6 +67,7 @@ public class Game {
 
     @FXML
     public void initialize() {
+        progressIndicator.setVisible(false);
         // Метод инициализации вызывается после загрузки FXML
     }
 
@@ -145,32 +151,71 @@ public class Game {
         }
     }
 
-    private boolean checkSdStatus(){
-        String status = sshManager.sshExec(sshManager.getSession(), "date");
-        if (status != null){
-            System.out.println(App.timestamp() + "checkSdStatus: successfull");
-            sdStatusLabel.setText("Steam Deck status: connected!");
-            return true;
-            
-        } else {
-            System.out.println(App.timestamp() + "checkSdStatus: error");
-            sdStatusLabel.setText("Steam Deck status: error!");
-            return false;
+    public void steamDeckToPc() {
+        Task<Void> steamDeckToPcTask = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                // Ваш метод pcToSteamDeck
+                progressIndicator.setVisible(true);
+                App.getSaveFromSD(name, pcLocation, sdLocation, host, user, password);
+                return null;
+            }
+        };
+    
+        // Обработчик успешного завершения задачи
+        steamDeckToPcTask.setOnSucceeded(event -> {
+            System.out.println("Task completed successfully!");
+            progressIndicator.setVisible(false);
+            // Логика после успешного завершения
+    
+        });
+    
+        // Обработчик ошибки задачи
+        steamDeckToPcTask.setOnFailed(event -> {
+            Throwable exception = steamDeckToPcTask.getException();
+            exception.printStackTrace();
+            // Логика при ошибке
+    
+        });
+    
+        // Запускаем задачу в фоновом потоке
+        new Thread(steamDeckToPcTask).start();
+    }
+
+public void pcToSteamDeck() {
+    Task<Void> pcToSteamDeckTask = new Task<>() {
+        @Override
+        protected Void call() throws Exception {
+            // Ваш метод pcToSteamDeck
+            progressIndicator.setVisible(true);
+            BackupManager backupManager = new BackupManager();
+            String path = String.format("backups/[SD] " + App.timestamp_() + " " + name);
+            backupManager.backupSaveFromSD(name, sdLocation, path, host, user, password);
+            copyFilesToSd(sdLocation, pcLocation);
+            return null;
         }
-    }
+    };
 
-    public void steamDeckToPc(){
-        App.getSaveFromSD(this.name, this.pcLocation, this.sdLocation, this.host, this.user, this.password);
-        
-    }
+    // Обработчик успешного завершения задачи
+    pcToSteamDeckTask.setOnSucceeded(event -> {
+        System.out.println("Task completed successfully!");
+        progressIndicator.setVisible(false);
+        // Логика после успешного завершения
 
-    public void pcToSteamDeck(){
-        BackupManager backupManager = new BackupManager();
-        String path = String.format("backups/[SD] " + App.timestamp_() + " " + this.name);
-        backupManager.backupSaveFromSD(this.name, this.sdLocation, path, this.host, this.user, this.password);
-        copyFilesToSd(this.sdLocation, this.pcLocation);
-        
-    }
+    });
+
+    // Обработчик ошибки задачи
+    pcToSteamDeckTask.setOnFailed(event -> {
+        Throwable exception = pcToSteamDeckTask.getException();
+        exception.printStackTrace();
+        // Логика при ошибке
+
+    });
+
+    // Запускаем задачу в фоновом потоке
+    new Thread(pcToSteamDeckTask).start();
+}
+
 
     public void copyFilesToSd(String remoteDirectoryPath, String localDirectoryPath) {
         Session session = null;

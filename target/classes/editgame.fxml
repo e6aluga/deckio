@@ -7,14 +7,14 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController" stylesheets="@styles.css">
-    <Label text="Config:"/>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.EditConfigController" stylesheets="@styles.css" style="-fx-padding: 10px">
+    <Label text="Config:" style="-fx-padding: 10px"/>
     <TextField fx:id="editConfigNameField" text="editableParam"/>
-    <Label text="Game:"/>
+    <Label text="Game:" style="-fx-padding: 10px"/>
     <TextField fx:id="editGameNameField" text="editableParam"/>
-    <Label text="Saves Folder (PC):"/>
+    <Label text="Saves Folder (PC):" style="-fx-padding: 10px"/>
     <TextField fx:id="editSaveLocationPCField" text="editableParam"/>
-    <Label text="Saves Folder (Steam Deck):"/>
+    <Label text="Saves Folder (Steam Deck):" style="-fx-padding: 10px"/>
     <TextField fx:id="editSaveLocationSteamDeckField" text="editableParam"/>
     <Label text="Warning! Be extremely careful when choosing a directory!"/>
     <VBox fx:id="editgameSaveContainer">

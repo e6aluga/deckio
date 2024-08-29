@@ -54,7 +54,7 @@ public class EditConfigController {
 
             Stage stage = new Stage();
             stage.setTitle("Edit Game");
-            stage.setScene(new Scene(root, 700, 300));
+            stage.setScene(new Scene(root, 700, 400));
             stage.show();
 
             this.configName = configName;

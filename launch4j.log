@@ -1,0 +1,39 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\Yuriy.Khlynovskiy\Desktop\FlyingDeck\flyingdeck.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\Yuriy.Khlynovskiy\Desktop\FlyingDeck\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Windows\System32;C:\Users\Yuriy.Khlynovskiy\Downloads\mpv;C:\Program Files\Kerio\Outlook Connector (Offline Edition)\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312;C:\Program Files\OpenLDAP\libs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\bin;C:\jdk-17.0.2\bin;C:\apache-maven-3.9.9\bin;C:\jdk-17.0.2\bin;C:\apache-maven-3.9.9\bin;C:\Users\Yuriy.Khlynovskiy\.dotnet\tools;C:\Users\Yuriy.Khlynovskiy\AppData\Local\atom\bin;;C:\jdk-17.0.2\bin
+JRE paths:	;C:\Windows\System32;C:\Users\Yuriy.Khlynovskiy\Downloads\mpv;C:\Program Files\Kerio\Outlook Connector (Offline Edition)\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312;C:\Program Files\OpenLDAP\libs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\bin;C:\jdk-17.0.2\bin;C:\apache-maven-3.9.9\bin;C:\jdk-17.0.2\bin;C:\apache-maven-3.9.9\bin;C:\Users\Yuriy.Khlynovskiy\.dotnet\tools;C:\Users\Yuriy.Khlynovskiy\AppData\Local\atom\bin;;C:\jdk-17.0.2\bin
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Users\Yuriy.Khlynovskiy\Downloads\mpv\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Kerio\Outlook Connector (Offline Edition)\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\dotnet\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\nodejs\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312\Scripts\bin\javaw.exe (not found)
+Check launcher:	C:\Users\Yuriy.Khlynovskiy\AppData\Local\Programs\Python\Python312\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\OpenLDAP\libs\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\IVI Foundation\VISA\WinNT\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\bin\javaw.exe (not found)
+Check launcher:	C:\ProgramData\chocolatey\bin\javaw.exe (not found)
+Check launcher:	C:\jdk-17.0.2\bin\javaw.exe (OK)
+Version string: 1.017.000_002 / 64-Bit (OK)
+Launcher:	C:\jdk-17.0.2\bin\javaw.exe
+Launcher args:	-jar "C:\Users\Yuriy.Khlynovskiy\Desktop\FlyingDeck\flyingdeck.exe"
+Args length:	67/32768 chars
+Exit code:	0
