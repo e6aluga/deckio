@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dddeck:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dddeck_jar</output-path>
+    <root id="archive" name="dddeck.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="dddeck" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jcraft/jsch/0.1.55/jsch-0.1.55.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/13/javafx-controls-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/13/javafx-base-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.10/jfoenix-9.0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/13/javafx-base-13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.10.1" />
+      <element id="library" level="project" name="Maven: com.jfoenix:jfoenix:9.0.10" />
+      <element id="library" level="project" name="Maven: com.jcraft:jsch:0.1.55" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:13" />
+    </root>
+  </artifact>
+</component>
