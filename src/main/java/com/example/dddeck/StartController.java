@@ -21,6 +21,10 @@ import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.awt.Desktop;
+
 public class StartController {
 
     private SSHManager sshManager;
@@ -122,33 +126,69 @@ public class StartController {
     public SSHManager getSSHManager(){
         return this.sshManager;
     }
+    public void openHelpPage(){
+        openLink("https://github.com/e6aluga/FlyingDeck?tab=readme-ov-file#readme");
+    }
+
+    private void openLink(String url) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (IOException | URISyntaxException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            System.out.println("Desktop is not supported.");
+        
+}
+}
 
     private void initializeMenuBar() {
         // Создайте MenuBar
         Menu fileMenu = new Menu("FlyingDeck");
         MenuItem addItem = new MenuItem("Add new game");
         MenuItem sdItem = new MenuItem("Steam Deck Settings");
-        MenuItem settingsItem = new MenuItem("App Settings");
+        // MenuItem settingsItem = new MenuItem("App Settings");
         MenuItem backupsItem = new MenuItem("Backups");
         SeparatorMenuItem separator = new SeparatorMenuItem();
         MenuItem exitItem = new MenuItem("Exit");
+    
+        // Назначение обработчиков событий
         addItem.setOnAction(e -> openAddGameWindow());
         sdItem.setOnAction(e -> openDeckWindow());
         backupsItem.setOnAction(e -> openBackups());
         exitItem.setOnAction(e -> System.exit(0));
-
-        
-
-        fileMenu.getItems().addAll(addItem, sdItem, settingsItem, backupsItem, separator, exitItem);
-
+    
+        // Добавление элементов в fileMenu
+        fileMenu.getItems().addAll(addItem, sdItem, backupsItem, separator, exitItem);
+    
+        // Создание и настройка helpMenu
         Menu helpMenu = new Menu("About");
-        helpMenu.setOnAction(e -> {
-            System.out.println("Help menu item clicked");
+    
+        // Создаем и настраиваем aboutItem
+        MenuItem aboutItem = new MenuItem("About");
+        aboutItem.setOnAction(e -> {
+            openAboutWindow();
+            System.out.println(App.timestamp() + " About menu item clicked");
         });
-
-        // Добавьте Menu в MenuBar
+    
+        // Создаем и настраиваем helpItem
+        MenuItem helpItem = new MenuItem("Help");
+        helpItem.setOnAction(e -> {
+            System.out.println(App.timestamp() + " Help menu item clicked");
+            openHelpPage();
+        });
+    
+        // Добавляем элементы в helpMenu
+        helpMenu.getItems().addAll(helpItem, aboutItem);
+    
+        // Добавление меню в MenuBar
         menuBar.getMenus().addAll(fileMenu, helpMenu);
     }
+    
+
+    
+    
 
     // Инициализация контекстного меню для ListView
     private void initializeContextMenu() {
@@ -212,7 +252,7 @@ public class StartController {
 
     @FXML
     public void openDeckWindow() {
-        showWindow("/deck.fxml", "Steam Deck Settings", 700, 470);
+        showWindow("/deck.fxml", "Steam Deck Settings", 700, 370);
     }
 
     @FXML
@@ -226,6 +266,20 @@ public class StartController {
             System.out.println(App.timestamp() + "openGameWindow()");
             Game game = new Game();
             game.init(name, sshManager);
+    }
+
+    @FXML
+    public void openAboutWindow(){
+        System.out.println(App.timestamp() + "openAboutWindow()");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/about.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("About");
+            stage.setScene(new Scene(loader.load(), 250, 80));    
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showWindow(String fxmlPath, String title, int width, int height) {
@@ -267,6 +321,10 @@ public class StartController {
         } else {
             System.out.println(App.timestamp() + " No item selected - Action: " + action);
         }
+    }
+
+    public void openHelpWindow(){
+
     }
 
     private void updateListView(String directoryPath) {

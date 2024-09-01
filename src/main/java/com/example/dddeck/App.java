@@ -23,6 +23,8 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
+    String version = "1.0.0-beta.1";
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Загрузите FXML файл
@@ -145,6 +147,10 @@ public class App extends Application {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+    }
+
+    public static String getVersion(){
+        return "1.0.0-beta.1";
     }
     
 }
