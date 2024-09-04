@@ -6,7 +6,6 @@ public class ConfigData {
     private String saveLocationSteamDeck;
     private String gameName;
 
-    // Геттеры и сеттеры
     public String getName() {
         return name;
     }
@@ -39,7 +38,6 @@ public class ConfigData {
         this.gameName = gameName;
     }
 
-    // Метод для получения данных (пример)
     public String getData() {
         return "Name: " + name + ", Game: " + gameName + ", PC Location: " + saveLocationPC + ", SteamDeck Location: " + saveLocationSteamDeck;
     }

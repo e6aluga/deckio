@@ -10,17 +10,12 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import com.jcraft.jsch.Session;
 import javafx.concurrent.Task;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 import javafx.scene.control.Alert.AlertType;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.awt.Desktop;
@@ -30,13 +25,12 @@ public class StartController {
     private SSHManager sshManager;
     private DeckData deckData;
     Session session;
+
     @FXML
     private ProgressIndicator progressIndicator;
+
     @FXML
     private ListView<String> listView;
-
-    private ExecutorService executorService;
-    private String selectedItem;
 
     @FXML
     private MenuBar menuBar;
@@ -44,8 +38,10 @@ public class StartController {
     @FXML
     private Label status;
 
+    private ExecutorService executorService;
+    private String selectedItem;
+
     public void initialize() {
-        // Инициализируем DeckData
         deckData = new DeckData();
         deckData.loadSteamDeckSettings();
         initializeContextMenu();
@@ -55,8 +51,6 @@ public class StartController {
         updateListView(directoryPath); 
         startWatching(directoryPath);
     
-        
-
         System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
 
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
@@ -129,7 +123,7 @@ public class StartController {
         return this.sshManager;
     }
     public void openHelpPage(){
-        openLink("https://github.com/e6aluga/FlyingDeck?tab=readme-ov-file#readme");
+        openLink("https://github.com/e6aluga/deckio?tab=readme-ov-file#readme");
     }
 
     private void openLink(String url) {
@@ -140,59 +134,44 @@ public class StartController {
                 ex.printStackTrace();
             }
         } else {
-            System.out.println("Desktop is not supported.");
-        
-}
+            System.out.println("Desktop is not supported."); 
+        }
 }
 
     private void initializeMenuBar() {
-        // Создайте MenuBar
-        Menu fileMenu = new Menu("FlyingDeck");
+        Menu fileMenu = new Menu("deckio");
         MenuItem addItem = new MenuItem("Add new game");
         MenuItem sdItem = new MenuItem("Steam Deck Settings");
         // MenuItem settingsItem = new MenuItem("App Settings");
         MenuItem backupsItem = new MenuItem("Backups");
         SeparatorMenuItem separator = new SeparatorMenuItem();
         MenuItem exitItem = new MenuItem("Exit");
-    
-        // Назначение обработчиков событий
         addItem.setOnAction(e -> openAddGameWindow());
         sdItem.setOnAction(e -> openDeckWindow());
         backupsItem.setOnAction(e -> openBackups());
         exitItem.setOnAction(e -> System.exit(0));
     
-        // Добавление элементов в fileMenu
         fileMenu.getItems().addAll(addItem, sdItem, backupsItem, separator, exitItem);
-    
-        // Создание и настройка helpMenu
+
         Menu helpMenu = new Menu("About");
-    
-        // Создаем и настраиваем aboutItem
         MenuItem aboutItem = new MenuItem("About");
+
         aboutItem.setOnAction(e -> {
             openAboutWindow();
             System.out.println(App.timestamp() + " About menu item clicked");
         });
-    
-        // Создаем и настраиваем helpItem
+
         MenuItem helpItem = new MenuItem("Help");
         helpItem.setOnAction(e -> {
             System.out.println(App.timestamp() + " Help menu item clicked");
             openHelpPage();
         });
     
-        // Добавляем элементы в helpMenu
         helpMenu.getItems().addAll(helpItem, aboutItem);
     
-        // Добавление меню в MenuBar
         menuBar.getMenus().addAll(fileMenu, helpMenu);
     }
     
-
-    
-    
-
-    // Инициализация контекстного меню для ListView
     private void initializeContextMenu() {
         ContextMenu contextMenu = new ContextMenu();
 
@@ -208,7 +187,6 @@ public class StartController {
         listView.setContextMenu(contextMenu);
     }
 
-    // Настройка ListView
     private void setupListView() {
         listView.setCellFactory(new Callback<>() {
             @Override
@@ -261,12 +239,10 @@ public class StartController {
 
     @FXML
     public void openBackupsAction() {
-        // TODO: Реализовать действие для открытия окна резервного копирования
     }
 
     @FXML
     public void openGameWindow(String name) {
-        // Правильное сравнение строк с использованием equals
             System.out.println(App.timestamp() + "openGameWindow()");
             Game game = new Game();
             game.init(name, sshManager);
@@ -293,7 +269,6 @@ public class StartController {
             stage.setTitle(title);
             stage.setScene(new Scene(loader.load(), width, height));
     
-            // Получаем контроллер и передаем ему данные
             Object controller = loader.getController();
             if (controller instanceof DeckController) {
                 DeckController deckController = (DeckController) controller;
@@ -324,10 +299,6 @@ public class StartController {
                     System.out.println(App.timestamp() + " Unknown action: " + action);
                     break;
             }
-    }
-
-    public void openHelpWindow(){
-
     }
 
     private void updateListView(String directoryPath) {

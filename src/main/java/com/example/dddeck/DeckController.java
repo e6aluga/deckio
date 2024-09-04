@@ -1,34 +1,30 @@
 package com.example.dddeck;
 
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.net.URI;
 import java.net.URISyntaxException;
-import javafx.scene.control.Hyperlink;
 import java.awt.Desktop;
 
 public class DeckController {
 
     @FXML
     private TextField deckIpField;
+
     @FXML
     private TextField deckUserField;
+
     @FXML
     private TextField deckPasswordField;
+
     @FXML
     private TextField deckPortField;
+
     @FXML
     private Hyperlink deckHelpLink;
 
@@ -38,10 +34,9 @@ public class DeckController {
     @FXML
     private void initialize(){
         System.out.println(App.timestamp() + "DeckController initialize()");
-        deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/FlyingDeck"));
+        deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/deckio"));
 
     }
-
 
     @FXML
     private void createDeckConfig(){
@@ -82,8 +77,7 @@ public class DeckController {
             }
         } else {
             System.out.println("Desktop is not supported.");
-        
-}
-}
+        }
+    }
 
 }

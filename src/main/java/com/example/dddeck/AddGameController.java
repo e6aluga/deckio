@@ -2,18 +2,11 @@ package com.example.dddeck;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import javafx.stage.DirectoryChooser;
 import java.io.File;
 
@@ -22,10 +15,13 @@ public class AddGameController{
 
     @FXML
     private TextField configNameField;
+
     @FXML
     private TextField gameNameField;
+
     @FXML
     private TextField saveLocationPCField;
+    
     @FXML
     private TextField saveLocationSteamDeckField;
 

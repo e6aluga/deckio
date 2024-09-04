@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 
@@ -54,25 +55,31 @@ public class Game {
     @FXML
     private ProgressIndicator progressIndicator;
 
+    @FXML
+    private TextArea console;
 
     public Game() {
-        // Конструктор по умолчанию
     }
 
     @FXML
     public void setName(String game) {
         this.game = game;
         if (gameNameLabel != null) {
-            gameNameLabel.setText(game);  // Устанавливаем текст в метку
+            gameNameLabel.setText(game);
         }
     }
 
     @FXML
     public void initialize() {
         progressIndicator.setVisible(false);
-        // Метод инициализации вызывается после загрузки FXML
+        console.setWrapText(true);
+        console.setEditable(false);
+        
     }
 
+    private void appendToConsole(String message) {
+        console.appendText(message + "\n");
+    }
 
     public void setSSHManager(SSHManager sshManager) {
         this.sshManager = sshManager;
@@ -82,17 +89,12 @@ public class Game {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/game.fxml"));
             Parent root = loader.load();
-
-            // Получаем контроллер, который был создан автоматически
             Game controller = loader.getController();
-            controller.setName(name);  // Передаём имя игры в контроллер
-            controller.setSSHManager(sshManager); // Передаём SSHManager в контроллер
-
-            // Загружаем конфигурацию игры после установки имени
+            controller.setName(name);
+            controller.setSSHManager(sshManager);
             controller.loadGameConfig(name);
             controller.loadSteamDeckSettings();
             controller.updateLabels();
-            // controller.checkSdStatus();
 
             Stage stage = new Stage();
             stage.setTitle(name);
@@ -156,41 +158,36 @@ public class Game {
     }
 
     public void steamDeckToPc() {
+        appendToConsole(App.timestamp() + "Starting to copy files from the Steam Deck...");
         Task<Void> steamDeckToPcTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
-                // Ваш метод pcToSteamDeck
                 progressIndicator.setVisible(true);
                 App.getSaveFromSD(name, pcLocation, sdLocation, host, user, password);
                 return null;
             }
         };
     
-        // Обработчик успешного завершения задачи
         steamDeckToPcTask.setOnSucceeded(event -> {
-            System.out.println("Task completed successfully!");
+            appendToConsole(App.timestamp() + "Task completed!");
             progressIndicator.setVisible(false);
-            // Логика после успешного завершения
     
         });
-    
-        // Обработчик ошибки задачи
+
         steamDeckToPcTask.setOnFailed(event -> {
+            appendToConsole(App.timestamp() + "Task failed: " + steamDeckToPcTask.getException());
             Throwable exception = steamDeckToPcTask.getException();
             exception.printStackTrace();
-            // Логика при ошибке
-    
         });
     
-        // Запускаем задачу в фоновом потоке
         new Thread(steamDeckToPcTask).start();
     }
 
 public void pcToSteamDeck() {
+    appendToConsole(App.timestamp() + "Starting to copy files to the Steam Deck...");
     Task<Void> pcToSteamDeckTask = new Task<>() {
         @Override
         protected Void call() throws Exception {
-            // Ваш метод pcToSteamDeck
             progressIndicator.setVisible(true);
             BackupManager backupManager = new BackupManager();
             String path = String.format("backups/[SD] " + App.timestamp_() + " " + name);
@@ -200,44 +197,34 @@ public void pcToSteamDeck() {
         }
     };
 
-    // Обработчик успешного завершения задачи
     pcToSteamDeckTask.setOnSucceeded(event -> {
+        appendToConsole(App.timestamp() + "Task completed!");
         System.out.println("Task completed successfully!");
         progressIndicator.setVisible(false);
-        // Логика после успешного завершения
-
     });
 
-    // Обработчик ошибки задачи
     pcToSteamDeckTask.setOnFailed(event -> {
+        appendToConsole(App.timestamp() + "Task failed!" + pcToSteamDeckTask.getException());
         Throwable exception = pcToSteamDeckTask.getException();
         exception.printStackTrace();
-        // Логика при ошибке
-
     });
 
-    // Запускаем задачу в фоновом потоке
     new Thread(pcToSteamDeckTask).start();
 }
-
-
     public void copyFilesToSd(String remoteDirectoryPath, String localDirectoryPath) {
         Session session = null;
         ChannelExec execChannel = null;
         ChannelSftp sftpChannel = null;
 
         try {
-            // Устанавливаем соединение
             JSch jsch = new JSch();
             session = jsch.getSession(this.user, this.host, 22);
             session.setPassword(this.password);
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
 
-            // Создаем команду для очистки папки
             String command = String.format("find %s -mindepth 1 -delete", remoteDirectoryPath);
 
-            // Выполняем команду очистки папки
             execChannel = (ChannelExec) session.openChannel("exec");
             execChannel.setCommand(command);
             execChannel.setInputStream(null);
@@ -252,6 +239,7 @@ public void pcToSteamDeck() {
                     int i = in.read(tmp, 0, 1024);
                     if (i < 0) break;
                     System.out.print(new String(tmp, 0, i));
+                    appendToConsole(App.timestamp() + new String(tmp, 0, i));
                 }
                 if (execChannel.isClosed()) {
                     if (in.available() > 0) continue;
@@ -261,23 +249,19 @@ public void pcToSteamDeck() {
                 Thread.sleep(1000);
             }
             execChannel.disconnect();
+            appendToConsole(App.timestamp() + "Folder cleared");
+            System.out.println("Folder cleared");
 
-            System.out.println("Папка успешно очищена.");
-
-            // Подключаемся к SFTP каналу
             sftpChannel = (ChannelSftp) session.openChannel("sftp");
             sftpChannel.connect();
 
-            // Копируем файлы с удаленного устройства на локальный ПК
             copyFilesFromRemote(sftpChannel, remoteDirectoryPath, localDirectoryPath);
 
-            // Отправляем файлы и папки обратно в очищенную папку
             copyFilesAndDirectoriesToRemote(sftpChannel, localDirectoryPath, remoteDirectoryPath);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            // Освобождаем ресурсы
             if (execChannel != null && execChannel.isConnected()) {
                 execChannel.disconnect();
             }
@@ -293,7 +277,6 @@ public void pcToSteamDeck() {
     private void copyFilesFromRemote(ChannelSftp sftpChannel, String remoteDirectoryPath, String localDirectoryPath) throws SftpException, Exception {
         Vector<ChannelSftp.LsEntry> files = sftpChannel.ls(remoteDirectoryPath);
 
-        // Создаем локальную папку, если она не существует
         Path localDirPath = Paths.get(localDirectoryPath);
         if (!Files.exists(localDirPath)) {
             Files.createDirectories(localDirPath);
@@ -301,12 +284,12 @@ public void pcToSteamDeck() {
 
         for (ChannelSftp.LsEntry entry : files) {
             if (!entry.getAttrs().isDir()) {
-                // Копируем каждый файл с удаленного устройства на локальный ПК
                 String remoteFilePath = remoteDirectoryPath + "/" + entry.getFilename();
                 String localFilePath = localDirectoryPath + "/" + entry.getFilename();
                 try (FileOutputStream fos = new FileOutputStream(localFilePath)) {
                     sftpChannel.get(remoteFilePath, fos);
-                    System.out.println("Скачан файл: " + entry.getFilename());
+                    System.out.println("Download complete!: " + entry.getFilename());
+                    appendToConsole(App.timestamp() + "Download complete!: " + entry.getFilename());
                 }
             }
         }
@@ -316,19 +299,18 @@ public void pcToSteamDeck() {
         Files.walk(Paths.get(localDirectoryPath)).forEach(path -> {
             try {
                 if (Files.isDirectory(path)) {
-                    // Создаем папку на удаленном устройстве
                     String remoteDirPath = remoteDirectoryPath + "/" + Paths.get(localDirectoryPath).relativize(path).toString().replace("\\", "/");
                     try {
                         sftpChannel.mkdir(remoteDirPath);
-                        System.out.println("Создана папка: " + remoteDirPath);
+                        System.out.println("folder created: " + remoteDirPath);
+                        appendToConsole(App.timestamp() + "folder created: " + remoteDirPath);
                     } catch (SftpException e) {
-                        // Папка может уже существовать, игнорируем ошибку
                     }
                 } else if (Files.isRegularFile(path)) {
-                    // Загружаем файл на удаленное устройство
                     String remoteFilePath = remoteDirectoryPath + "/" + Paths.get(localDirectoryPath).relativize(path).toString().replace("\\", "/");
                     sftpChannel.put(path.toString(), remoteFilePath);
-                    System.out.println("Загружен файл: " + remoteFilePath);
+                    System.out.println("File uploaded: " + remoteFilePath);
+                    appendToConsole(App.timestamp() + "File uploaded: " + remoteFilePath);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

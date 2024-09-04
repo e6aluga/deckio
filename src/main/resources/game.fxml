@@ -8,22 +8,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.dddeck.Game"
       stylesheets="@styles.css"
       fx:id="gameWindow">
-    
+
     <Label fx:id="pcLocationLabel" text="pcLocation"/>
     <Label fx:id="sdLocationLabel" text="sdLocation"/>
 
-    <HBox fx:id="gameLoadbarContainer" alignment="CENTER" spacing="10"></HBox>
+    <TextArea fx:id="console" editable="false" wrapText="true" prefHeight="200" />
 
-    <!-- Контейнер для кнопок -->
     <HBox fx:id="buttonContainer" alignment="CENTER" spacing="10">
         <Button fx:id="sendToSteamDeckBtn" text="PC -> Steam Deck" onAction="#pcToSteamDeck"/>
-            <ProgressIndicator fx:id="progressIndicator" />
+        <ProgressIndicator fx:id="progressIndicator" />
         <Button fx:id="getFromSteamDeckBtn" text="Steam Deck -> PC" onAction="#steamDeckToPc"/>
     </HBox>
 </VBox>
+

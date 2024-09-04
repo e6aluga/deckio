@@ -4,13 +4,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
-
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
-import com.jcraft.jsch.Session;
 
 public class SSHManager {
 
@@ -153,12 +151,11 @@ public class SSHManager {
     }
 
         private static void downloadFolder(ChannelSftp channelSftp, String remoteDir, String localDir) throws SftpException, IOException {
-        Vector<ChannelSftp.LsEntry> fileAndFolderList = channelSftp.ls(remoteDir); // List source directory structure.
+        Vector<ChannelSftp.LsEntry> fileAndFolderList = channelSftp.ls(remoteDir);
 
-        for (ChannelSftp.LsEntry item : fileAndFolderList) { // Iterate objects in the list to get file/folder names.
+        for (ChannelSftp.LsEntry item : fileAndFolderList) { 
             String fileName = item.getFilename();
 
-            // Skip ".", ".." entries
             if (fileName.equals(".") || fileName.equals("..")) {
                 continue;
             }
@@ -166,10 +163,10 @@ public class SSHManager {
             String remoteFilePath = remoteDir + "/" + fileName;
             String localFilePath = localDir + File.separator + fileName;
 
-            if (item.getAttrs().isDir()) { // If it is a directory, recursively copy it
-                new File(localFilePath).mkdirs(); // Create the local directory.
-                downloadFolder(channelSftp, remoteFilePath, localFilePath); // Recursively download subdirectories.
-            } else { // If it is a file, download it.
+            if (item.getAttrs().isDir()) { 
+                new File(localFilePath).mkdirs();
+                downloadFolder(channelSftp, remoteFilePath, localFilePath);
+            } else {
                 try (FileOutputStream fos = new FileOutputStream(new File(localFilePath))) {
                     channelSftp.get(remoteFilePath, fos);
                 }

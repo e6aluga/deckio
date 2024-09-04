@@ -11,8 +11,8 @@
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.DeckController" stylesheets="@styles.css" style="-fx-padding: 10px">
     
-        <Label text="IP: " style="-fx-padding: 10px"/>
-        <TextField fx:id="deckIpField" promptText="192.168.2.74"/>
+    <Label text="IP: " style="-fx-padding: 10px"/>
+    <TextField fx:id="deckIpField" promptText="192.168.2.74"/>
     <Label text="Username: " style="-fx-padding: 10px"/>
     <TextField fx:id="deckUserField" promptText="deck" />
     <Label text="Password: " style="-fx-padding: 10px"/>

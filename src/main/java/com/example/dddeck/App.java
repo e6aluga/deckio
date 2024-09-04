@@ -8,17 +8,10 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Stream;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -28,23 +21,17 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Загрузите FXML файл
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/start.fxml"));
         BorderPane root = loader.load();
         Scene scene = new Scene(root, 300, 400);
 
-                // Обработчик закрытия окна
         primaryStage.setOnCloseRequest(event -> {
-            // Завершение всех фоновый задач, если есть
-            // Закрытие соединений и освобождение ресурсов
             System.out.println("Application is closing...");
-
-            // Остановка всех потоков и закрытие JVM
             Platform.exit();
             System.exit(0);
         });
 
-        primaryStage.setTitle("FlyingDeck");
+        primaryStage.setTitle("deckio");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -73,7 +60,6 @@ public class App extends Application {
 
     public static void timer(int time) {
         try {
-            // time указывается в миллисекундах
             Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -123,17 +109,13 @@ public class App extends Application {
     }
 
     public static void cleanDirectory(File directory) {
-        // Проверяем, что указанный путь является директорией
         if (directory.isDirectory()) {
-            // Получаем список всех файлов и директорий внутри данной директории
             File[] files = directory.listFiles();
-            if (files != null) { // Проверяем, что список файлов не равен null
+            if (files != null) {
                 for (File file : files) {
-                    // Если это директория, то рекурсивно очищаем её
                     if (file.isDirectory()) {
                         cleanDirectory(file);
                     }
-                    // Удаляем файл или пустую директорию
                     file.delete();
                 }
             }

@@ -1,193 +1,207 @@
-/* Общий фон для всего приложения */
 .root {
-    -fx-background-color: #1E1E1E; /* Темный фон для всего приложения */
+    -fx-background-color: #1E1E1E;
     background-color: #1E1E1E;
 }
 
-/* Стили для кнопок */
 .button {
-    -fx-background-color: #2A2A2A; /* Цвет фона */
-    -fx-text-fill: #E0E0E0;         /* Цвет текста */
-    -fx-font-size: 12px;            /* Размер шрифта */
-    -fx-padding: 8px 15px;          /* Внутренние отступы */
-    -fx-background-radius: 4px;     /* Радиус скругления углов */
-    -fx-border-color: #333;         /* Цвет границы */
-    -fx-border-width: 1px;          /* Ширина границы */
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: #E0E0E0;
+    -fx-font-size: 12px;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
 }
+
 .button:hover {
-    -fx-background-color: #3A3A3A; /* Цвет фона при наведении */
+    -fx-background-color: #3A3A3A;
 }
 
-/* Стили для ListView и его элементов */
 .list-view {
-    -fx-background-color: #2A2A2A; /* Цвет фона ListView */
-    -fx-border-color: #2A2A2A;     /* Цвет границы */
+    -fx-background-color: #2A2A2A;
+    -fx-border-color: #2A2A2A;
 }
+
 .list-cell {
-    -fx-text-fill: #E0E0E0;         /* Цвет текста */
-    -fx-background-color: #2A2A2A; /* Цвет фона ячейки */
-    -fx-font-size: 12px;            /* Размер шрифта */
-    -fx-padding: 8px;               /* Внутренние отступы */
+    -fx-text-fill: #E0E0E0;
+    -fx-background-color: #2A2A2A;
+    -fx-font-size: 12px;
+    -fx-padding: 8px;
 }
+
+#console {
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 10px;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
+}
+#console .content{
+    -fx-background-color: #2A2A2A; 
+}
+
 .list-cell:focused, .list-cell:selected {
-    -fx-background-color: #3A3A3A; /* Цвет фона выбранной ячейки */
-    -fx-text-fill: #FFFFFF;         /* Цвет текста выбранной ячейки */
+    -fx-background-color: #3A3A3A;
+    -fx-text-fill: #FFFFFF;
 }
 
-/* Стили для меток */
 .label {
-    -fx-text-fill: #E0E0E0;         /* Цвет текста */
-    -fx-font-size: 12px;            /* Размер шрифта */
+    -fx-text-fill: #E0E0E0;
+    -fx-font-size: 12px;
 }
 
-/* Стили для текстовых полей */
 .text-field {
-    -fx-background-color: #2A2A2A; /* Цвет фона */
-    -fx-text-fill: #E0E0E0;         /* Цвет текста */
-    -fx-border-color: #3A3A3A;     /* Цвет границы */
-    -fx-padding: 8px;              /* Внутренние отступы */
-    -fx-font-size: 12px;           /* Размер шрифта */
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: #E0E0E0;
+    -fx-border-color: #3A3A3A;
+    -fx-padding: 8px;
+    -fx-font-size: 12px;
 }
 
-/* Стили для контекстного меню */
 .context-menu {
-    -fx-background-color: #1E1E1E; /* Цвет фона контекстного меню */
-    -fx-border-color: #2A2A2A;     /* Цвет границы */
-    -fx-border-radius: 5px;        /* Скругление углов границы */
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #2A2A2A;
+    -fx-border-radius: 5px;
 }
 
-/* Стили для пунктов меню */
 .menu-item {
-    -fx-text-fill: #E0E0E0;         /* Цвет текста в пункте меню */
-    -fx-font-size: 12px;            /* Размер шрифта */
-    -fx-padding: 8px 12px;          /* Внутренние отступы */
+    -fx-text-fill: #E0E0E0;
+    -fx-font-size: 12px;
+    -fx-padding: 8px 12px;
 }
+
 .menu-item:hover {
-    -fx-background-color: #3A3A3A; /* Цвет фона при наведении */
+    -fx-background-color: #3A3A3A;
 }
 
-/* Стили для MenuBar */
 .menu-bar {
-    -fx-background-color: #1E1E1E; /* Темный фон для MenuBar */
-    -fx-border-color: #333;         /* Цвет границы MenuBar */
-    -fx-border-width: 1px;          /* Ширина границы MenuBar */
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
 }
 
-/* Стили для элементов Menu */
 .menu {
-    -fx-text-fill: #E0E0E0;         /* Цвет текста элементов Menu */
-    -fx-background-color: #1E1E1E; /* Фон элементов Menu */
-    -fx-padding: 8px 12px;          /* Отступы внутри элементов Menu */
+    -fx-text-fill: #E0E0E0;
+    -fx-background-color: #1E1E1E;
+    -fx-padding: 8px 12px;
 }
 
-/* Стили для выбранного элемента Menu */
 .menu-item:selected {
-    -fx-background-color: #3A3A3A; /* Фон выбранного элемента Menu */
+    -fx-background-color: #3A3A3A;
 }
 
-/* Стили для разделителей в меню */
 .separator-menu-item {
-    -fx-background-color: #333; /* Цвет фона разделителя меню */
-    -fx-padding: 0;             /* Убираем отступы для разделителей */
+    -fx-background-color: #333;
+    -fx-padding: 0;
 }
 
-/* Стили для Label с идентификатором status */
 #status {
-    -fx-font-size: 14px; /* Размер шрифта */
-    -fx-text-fill: white; /* Цвет текста */
-    -fx-padding: 10px; /* Отступы вокруг текста */
-    -fx-background-color: #1E1E1E; /* Цвет фона */
-    -fx-alignment: center; /* Выравнивание текста по центру */
-    -fx-max-width: Infinity; /* Занимает всю доступную ширину */
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-background-color: #1E1E1E;
+    -fx-alignment: center;
+    -fx-max-width: Infinity;
 }
 
-#gameWindow{
-    -fx-font-size:14px;
-    -fx-padding: 10px; /* Отступы вокруг текста */
+#gameWindow {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
 }
-/* Стили для контейнера кнопок */
+
 #buttonContainer {
-    -fx-spacing: 10; /* Расстояние между кнопками */
-    -fx-alignment: center; /* Выравнивание кнопок внутри контейнера */
-    -fx-padding: 10; /* Внутренние отступы контейнера */
-    -fx-pref-height: 50; /* Высота контейнера (опционально) */
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-padding: 10;
+    -fx-pref-height: 50;
 }
 
-#gameLoadbarContainer{
+#gameLoadbarContainer {
     -fx-pref-height: 100;
 }
 
-/* Стили для кнопок */
 #sendToSteamDeckBtn, #getFromSteamDeckBtn {
-    -fx-background-color: #007bff; /* Цвет фона кнопок */
-    -fx-text-fill: white; /* Цвет текста кнопок */
-    -fx-padding: 10 20; /* Внутренние отступы кнопок */
-    -fx-font-size: 14px; /* Размер шрифта текста кнопок */
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
 }
 
-/* Дополнительные стили для кнопок при наведении курсора */
 #sendToSteamDeckBtn:hover, #getFromSteamDeckBtn:hover {
-    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+    -fx-background-color: #0056b3;
 }
-#addGameWindow{
+
+#addGameWindow {
     -fx-padding: 10px;
     -fx-font-size: 14px;
 }
-#addGameSaveButton{
+
+#addGameSaveButton {
     -fx-padding: 10px 0 0 0;
     -fx-alignment: center;
     -fx-max-width: Infinity;
-
 }
 
-#addGameSaveButton #saveButton{
+#addGameSaveButton #saveButton {
     -fx-background-color: #007bff;
-    -fx-text-fill: white; /* Цвет текста кнопок */
-}
-#addGameSaveButton #saveButton:hover{
-    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+    -fx-text-fill: white;
 }
 
-#addGameOpenInExplorer{
+#addGameSaveButton #saveButton:hover {
+    -fx-background-color: #0056b3;
+}
+
+#addGameOpenInExplorer {
     -fx-margin: 10px 0 0 0;
 }
-#saveSettingsContainer{
+
+#saveSettingsContainer {
     -fx-padding: 10px 0 0 0;
     -fx-alignment: center;
     -fx-max-width: Infinity;
-}
-#saveSettingsContainer #saveSettings{
-    -fx-background-color: #007bff;
-    -fx-text-fill: white; /* Цвет текста кнопок */
 }
 
-#saveSettingsContainer #saveSettings:hover{
-    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+#saveSettingsContainer #saveSettings {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
 }
-#editgameSaveContainer{
+
+#saveSettingsContainer #saveSettings:hover {
+    -fx-background-color: #0056b3;
+}
+
+#editgameSaveContainer {
     -fx-padding: 10px 0 0 0;
     -fx-alignment: center;
     -fx-max-width: Infinity;
 }
-#editgameSaveContainer #saveButton{
+
+#editgameSaveContainer #saveButton {
     -fx-background-color: #007bff;
-    -fx-text-fill: white; /* Цвет текста кнопок */
+    -fx-text-fill: white;
 }
-#editgameSaveContainer #saveButton:hover{
-    -fx-background-color: #0056b3; /* Цвет фона кнопок при наведении */
+
+#editgameSaveContainer #saveButton:hover {
+    -fx-background-color: #0056b3;
 }
+
 #progressIndicator {
     -fx-pref-width: 20px;
     -fx-pref-height: 20px;
     -fx-accent: white;
 }
+
 #bottomStatusContainer {
     -fx-alignment: center;
 }
-#hboxTextField{
+
+#hboxTextField {
     -fx-width: 100%;
 }
-#AboutController{
+
+#AboutController {
     -fx-padding: 15px;
 }
+
 

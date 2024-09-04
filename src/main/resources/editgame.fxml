@@ -17,6 +17,7 @@
     <Label text="Saves Folder (Steam Deck):" style="-fx-padding: 10px"/>
     <TextField fx:id="editSaveLocationSteamDeckField" text="editableParam"/>
     <Label text="Warning! Be extremely careful when choosing a directory!"/>
+    
     <VBox fx:id="editgameSaveContainer">
         <Button fx:id="saveButton" text="Save config" onAction="#handleSaveButtonAction"/>
     </VBox>

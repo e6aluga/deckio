@@ -12,18 +12,15 @@
 <?import javafx.scene.control.Label?>
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.StartController" stylesheets="@styles.css">
-    <!-- MenuBar in the top section -->
     <top>
         <MenuBar fx:id="menuBar">
         </MenuBar>
     </top>
 
-    <!-- Content in the center section -->
     <center>
         <ListView fx:id="listView" prefWidth="200" prefHeight="150"/>
     </center>
 
-    <!-- Status Label in the bottom section -->
     <bottom>
         <HBox id="bottomStatusContainer">
         <Label fx:id="status" text="Status: connecting..." BorderPane.alignment="CENTER"/>
