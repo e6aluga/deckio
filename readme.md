@@ -5,7 +5,7 @@
 ---
 <center>
 <p align="center">
- <img width="600px" src="img/main.jpg" alt="deckio_window"/>
+ <img width="100%" src="img/main.jpg" alt="deckio_window"/>
 </p>
 </center>
 
