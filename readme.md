@@ -4,7 +4,9 @@
 
 ---
 <center>
-![deckio](https://i.ibb.co/8BwRNBS/main.jpg)
+<p align="center">
+ <img width="600px" src="img/main.jpg" alt="deckio_window"/>
+</p>
 </center>
 
 # Installation:
