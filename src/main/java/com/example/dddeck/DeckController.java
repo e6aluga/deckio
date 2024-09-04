@@ -34,7 +34,7 @@ public class DeckController {
     @FXML
     private void initialize(){
         System.out.println(App.timestamp() + "DeckController initialize()");
-        deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/deckio"));
+        deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/deckio?tab=readme-ov-file#how-to-setup-ssh-on-your-steam-deck"));
 
     }
 
