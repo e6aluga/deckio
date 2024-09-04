@@ -1,0 +1,41 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\ёрий\Desktop\FlyingDeck\out\artifacts\dddeck_jar\flyingdeck.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\ёрий\Desktop\FlyingDeck\out\artifacts\dddeck_jar\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Users\ёрий\gcc\bin;C:\Users\ёрий\gcc\libexec\gcc\x86_64-w64-mingw32\13.2.0;C:\WinAVR-20100110\bin;C:\WinAVR-20100110\utils\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Go\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.8\bin;C:\Program Files\WireGuard\;C:\jdk-17.0.2\bin;C:\Users\ёрий\AppData\Local\Programs\Python\Python312;C:\Users\ёрий\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\ёрий\AppData\Local\Programs\Python\Launcher\;C:\Users\ёрий\AppData\Local\Microsoft\WindowsApps;C:\Windows\System32;C:\jdk-11.0.2\bin;C:\bootstrapper;C:\bootstrapper\mpv;C:\bootstrapper\mpv.exe;C:\Users\ёрий\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ёрий\AppData\Roaming\npm;C:\Users\ёрий\.dotnet\tools;C:\Users\ёрий\go\bin;;C:\jdk-17.0.2\bin
+JRE paths:	;C:\Users\ёрий\gcc\bin;C:\Users\ёрий\gcc\libexec\gcc\x86_64-w64-mingw32\13.2.0;C:\WinAVR-20100110\bin;C:\WinAVR-20100110\utils\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Go\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.8\bin;C:\Program Files\WireGuard\;C:\jdk-17.0.2\bin;C:\Users\ёрий\AppData\Local\Programs\Python\Python312;C:\Users\ёрий\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\ёрий\AppData\Local\Programs\Python\Launcher\;C:\Users\ёрий\AppData\Local\Microsoft\WindowsApps;C:\Windows\System32;C:\jdk-11.0.2\bin;C:\bootstrapper;C:\bootstrapper\mpv;C:\bootstrapper\mpv.exe;C:\Users\ёрий\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ёрий\AppData\Roaming\npm;C:\Users\ёрий\.dotnet\tools;C:\Users\ёрий\go\bin;;C:\jdk-17.0.2\bin
+Check launcher:	C:\Users\ёрий\gcc\bin\javaw.exe (not found)
+Check launcher:	C:\Users\ёрий\gcc\libexec\gcc\x86_64-w64-mingw32\13.2.0\bin\javaw.exe (not found)
+Check launcher:	C:\WinAVR-20100110\bin\javaw.exe (not found)
+Check launcher:	C:\WinAVR-20100110\utils\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\nodejs\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\dotnet\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Go\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Microsoft SQL Server\150\Tools\Binn\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\bin\javaw.exe (not found)
+Check launcher:	C:\ProgramData\chocolatey\bin\javaw.exe (not found)
+Check launcher:	C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.8\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\WireGuard\bin\javaw.exe (not found)
+Check launcher:	C:\jdk-17.0.2\bin\javaw.exe (OK)
+Version string: 1.017.000_002 / 64-Bit (OK)
+Launcher:	C:\jdk-17.0.2\bin\javaw.exe
+Launcher args:	-jar "C:\Users\ёрий\Desktop\FlyingDeck\out\artifacts\dddeck_jar\flyingdeck.exe"
+Args length:	79/32768 chars
+Exit code:	0

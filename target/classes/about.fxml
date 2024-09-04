@@ -9,12 +9,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Hyperlink?>
 
-
-
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dddeck.AboutController" stylesheets="@styles.css" fx:id="AboutController">
     <Label fx:id="versionLabel"/>
     <HBox>
         <Hyperlink fx:id="githubLink" text="Github"/>
         <Hyperlink fx:id="authorLink" text="Author"/>
+        <Hyperlink fx:id="updatesLink" text="Updates"/>
     </HBox>
 </VBox>

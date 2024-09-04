@@ -52,9 +52,11 @@ public class StartController {
         setupListView();
         initializeMenuBar();
         String directoryPath = "configs/";
-        updateListView(directoryPath);
+        updateListView(directoryPath); 
         startWatching(directoryPath);
     
+        
+
         System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
 
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
@@ -196,11 +198,13 @@ public class StartController {
 
         MenuItem editItem = new MenuItem("Edit");
         MenuItem deleteItem = new MenuItem("Delete");
+        MenuItem addGameItem = new MenuItem("Add");
 
+        addGameItem.setOnAction(event -> handleMenuAction("openAddGameWindow"));
         editItem.setOnAction(event -> handleMenuAction("editConfig"));
         deleteItem.setOnAction(event -> handleMenuAction("deleteConfig"));
 
-        contextMenu.getItems().addAll(editItem, deleteItem);
+        contextMenu.getItems().addAll(addGameItem, editItem, deleteItem);
         listView.setContextMenu(contextMenu);
     }
 
@@ -306,7 +310,6 @@ public class StartController {
     private void handleMenuAction(String action) {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
         System.out.println("Selected item: " + selectedItem + " - Action: " + action);
-        if (selectedItem != null) {
             switch (action) {
                 case "editConfig":
                     editConfig(selectedItem);
@@ -314,13 +317,13 @@ public class StartController {
                 case "deleteConfig":
                     deleteConfig(selectedItem);
                     break;
+                case "openAddGameWindow":
+                    openAddGameWindow();
+                    break;
                 default:
                     System.out.println(App.timestamp() + " Unknown action: " + action);
                     break;
             }
-        } else {
-            System.out.println(App.timestamp() + " No item selected - Action: " + action);
-        }
     }
 
     public void openHelpWindow(){

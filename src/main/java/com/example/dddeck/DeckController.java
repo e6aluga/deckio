@@ -10,8 +10,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import javafx.scene.control.Hyperlink;
+import java.awt.Desktop;
 
 public class DeckController {
 
@@ -23,6 +29,8 @@ public class DeckController {
     private TextField deckPasswordField;
     @FXML
     private TextField deckPortField;
+    @FXML
+    private Hyperlink deckHelpLink;
 
     SSHManager sshManager;
     DeckData deckData;
@@ -30,6 +38,7 @@ public class DeckController {
     @FXML
     private void initialize(){
         System.out.println(App.timestamp() + "DeckController initialize()");
+        deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/FlyingDeck"));
 
     }
 
@@ -63,5 +72,18 @@ public class DeckController {
     public void setDeckData(DeckData deckData){
         this.deckData = deckData;
     }
+    
+    private void openLink(String url) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (IOException | URISyntaxException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            System.out.println("Desktop is not supported.");
+        
+}
+}
 
 }

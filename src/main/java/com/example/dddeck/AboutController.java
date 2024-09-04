@@ -32,13 +32,15 @@ public class AboutController {
     @FXML
     private Hyperlink authorLink;
 
+    @FXML
+    private Hyperlink updatesLink;
+
     public void initialize(){
         String version = App.getVersion();
         versionLabel.setText("FlyingDeck: " + version);
         githubLink.setOnAction(e -> openLink("https://github.com/e6aluga/FlyingDeck"));
         authorLink.setOnAction(e -> openLink("https://github.com/e6aluga"));
-
-
+        updatesLink.setOnAction(e -> openLink("https://github.com/e6aluga/FlyingDeck/releases"));
     }
 
         // Метод для открытия ссылки в браузере

@@ -26,6 +26,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.stage.Stage;
 
 
+
 public class Game {
 
     private String name;
@@ -53,6 +54,7 @@ public class Game {
     @FXML
     private ProgressIndicator progressIndicator;
 
+
     public Game() {
         // Конструктор по умолчанию
     }
@@ -70,6 +72,7 @@ public class Game {
         progressIndicator.setVisible(false);
         // Метод инициализации вызывается после загрузки FXML
     }
+
 
     public void setSSHManager(SSHManager sshManager) {
         this.sshManager = sshManager;
@@ -117,6 +120,7 @@ public class Game {
         if (map != null) {
             this.pcLocation = map.get("saveLocationPC");
             this.sdLocation = map.get("saveLocationSteamDeck");
+            this.name = map.get("gameName");
         }
     }
 

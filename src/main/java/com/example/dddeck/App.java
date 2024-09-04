@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.stream.Stream;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,9 +31,19 @@ public class App extends Application {
         // Загрузите FXML файл
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/start.fxml"));
         BorderPane root = loader.load();
-
-        // Создайте сцену с корневым элементом и установите ее в Stage
         Scene scene = new Scene(root, 300, 400);
+
+                // Обработчик закрытия окна
+        primaryStage.setOnCloseRequest(event -> {
+            // Завершение всех фоновый задач, если есть
+            // Закрытие соединений и освобождение ресурсов
+            System.out.println("Application is closing...");
+
+            // Остановка всех потоков и закрытие JVM
+            Platform.exit();
+            System.exit(0);
+        });
+
         primaryStage.setTitle("FlyingDeck");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -44,13 +55,18 @@ public class App extends Application {
     }
 
     public static String timestamp(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd HH mm ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String time = String.format("%s ", dtf.format(LocalDateTime.now()));
         return time;
     }
 
     public static String timestamp_(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd_HH_mmss");
+        String time = String.format("%s", dtf.format(LocalDateTime.now()));
+        return time;
+    }
+    public static String timestamp__(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM dd_HH_mm_ss");
         String time = String.format("%s", dtf.format(LocalDateTime.now()));
         return time;
     }
@@ -97,7 +113,7 @@ public class App extends Application {
 
         String pcDir_ = String.format("%s/", pcDir); // pcDir, но со слешем
 
-        backupManager.backupSaveFromPC(pcDir, "test"); // делаем бекап перед заменой файлов с дека
+        backupManager.backupSaveFromPC(pcDir, name); // делаем бекап перед заменой файлов с дека
 
         cleanDirectory(savePcFolder); // чистим локальную директорию перед новыми сейвами
 
