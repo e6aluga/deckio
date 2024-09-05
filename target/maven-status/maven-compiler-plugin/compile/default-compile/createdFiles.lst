@@ -2,6 +2,7 @@ com\example\dddeck\StartController.class
 com\example\dddeck\App.class
 com\example\dddeck\EditConfigController.class
 com\example\dddeck\StartController$1.class
+com\example\dddeck\AboutController.class
 com\example\dddeck\SSHManager.class
 module-info.class
 com\example\dddeck\StartController$2$1.class
