@@ -28,12 +28,14 @@ public class AddGameController{
     @FXML
     private void initialize() {
         System.out.println(App.timestamp() + "AddGameController initialize()");
+        App.logToFile(App.timestamp() + "AddGameController initialize()");
     }
 
 
     @FXML
     public void saveGame() {
         System.out.println(App.timestamp() + "AddGameController saveGame()");
+        App.logToFile(App.timestamp() + "AddGameController saveGame()");
         String configName = configNameField.getText();
         String gameName = gameNameField.getText();
         String saveLocationPC = saveLocationPCField.getText();
@@ -59,6 +61,7 @@ public class AddGameController{
 
     public void addConfig(String configName, String gameName, String saveLocationPC, String saveLocationSteamDeck) {
         System.out.println(App.timestamp() + "AddGameController addConfig()");
+        App.logToFile(App.timestamp() + "AddGameController addConfig()");
         ConfigData configData = new ConfigData();
         
         configData.setName(configName);
@@ -67,6 +70,7 @@ public class AddGameController{
         configData.setSaveLocationSteamDeck(saveLocationSteamDeck);
         
         System.out.println(configData.getData());
+        App.logToFile(configData.getData());
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         
@@ -78,6 +82,7 @@ public class AddGameController{
 
             String jsonString = gson.toJson(configData);
             System.out.println(App.timestamp() + jsonString);
+            App.logToFile(App.timestamp() + jsonString);
             
         } catch (IOException e){
             e.printStackTrace();

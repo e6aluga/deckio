@@ -13,8 +13,10 @@ public class BackupManager {
         try {
             App.copyDirectory(sourceDir, targetDir);
             System.out.println(App.timestamp() + sourceDir + " -> " + targetDir + " Directory copied successfully!");
+            App.logToFile(App.timestamp() + sourceDir + " -> " + targetDir + " Directory copied successfully!");
         } catch (IOException e) {
             System.err.println(App.timestamp() + sourceDir + " -> " + targetDir + " Failed to copy directory: " + e.getMessage());
+            App.logToFile(App.timestamp() + sourceDir + " -> " + targetDir + " Failed to copy directory: " + e.getMessage());
         }
     }
 

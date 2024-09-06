@@ -33,6 +33,8 @@ public class SSHManager {
 
     public Session connect(){
         System.out.println(App.timestamp() + "SSHManager connect()");
+        App.logToFile(App.timestamp() + "SSHManager connect()");
+
         System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
         try {
         JSch jsch = new JSch();
@@ -42,13 +44,18 @@ public class SSHManager {
         session.connect();
         this.session = session;
         System.out.println(App.timestamp() + "Session connected." + session);
+        App.logToFile(App.timestamp() + "Session connected." + session);
         
         return session;
 
         } catch (Exception e){
             e.printStackTrace();
             System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
+            App.logToFile(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
+
+
             System.out.println(App.timestamp() + "[e] Session: " + e);
+            App.logToFile(App.timestamp() + "[e] Session: " + e);
             return null;
         }
     }
@@ -57,8 +64,10 @@ public class SSHManager {
         if (session != null && session.isConnected()) {
             session.disconnect();
             System.out.println(App.timestamp() + "Session disconnected.");
+            App.logToFile(App.timestamp() + "Session disconnected.");
         } else {
             System.out.println(App.timestamp() + "Session is already null or not connected.");
+            App.logToFile(App.timestamp() + "Session is already null or not connected.");
         }
     }
 
@@ -69,6 +78,7 @@ public class SSHManager {
 
     public String sshExec(Session session, String command){
         System.out.println(App.timestamp() + "SSHManager sshExec()");
+        App.logToFile(App.timestamp() + "SSHManager sshExec()");
 
         try {
             connect();
@@ -105,6 +115,7 @@ public class SSHManager {
 
             String commandOutput = outputBuffer.toString();
             System.out.println(App.timestamp() + "[SteamDeck] " + commandOutput);
+            App.logToFile(App.timestamp() + "[SteamDeck] " + commandOutput);
             return commandOutput;
 
             
@@ -120,6 +131,7 @@ public class SSHManager {
         ChannelSftp channelSftp = null;
 
         System.out.println(App.timestamp() + "Downloading save from SD...");
+        App.logToFile(App.timestamp() + "Downloading save from SD...");
 
         File directory = new File(localDir);
         if (!directory.exists()) {

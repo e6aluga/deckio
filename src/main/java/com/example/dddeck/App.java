@@ -14,6 +14,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class App extends Application {
 
@@ -91,6 +94,7 @@ public class App extends Application {
     }
     public static void getSaveFromSD(String name, String pcDir, String sdDir, String host, String user, String password){
         System.out.println(timestamp() + "Getting saves from Steam Deck");
+        App.logToFile(timestamp() + "Getting saves from Steam Deck");
 
         BackupManager backupManager = new BackupManager();
         SSHManager sshManager = new SSHManager();
@@ -106,6 +110,7 @@ public class App extends Application {
         sshManager.getRemoteDir(sdDir, pcDir_, host, user, password); // загружаем сейвы с дека и заменяем файлы новыми
 
         System.out.println(timestamp() + "Completed!");
+        App.logToFile(timestamp() + "Completed!");
     }
 
     public static void cleanDirectory(File directory) {
@@ -141,14 +146,26 @@ public class App extends Application {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Failed to open folder in file explorer.");
+            App.logToFile("Failed to open folder in file explorer.");
         } catch (UnsupportedOperationException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
+            App.logToFile(e.getMessage());
         }
     }
 
     public static String getVersion(){
         return "1.0.0-beta.1";
     }
+
+    public static void logToFile(String message) {
+        try (FileWriter fileWriter = new FileWriter("logs.txt", true); // true 
+             PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            printWriter.println(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     
 }

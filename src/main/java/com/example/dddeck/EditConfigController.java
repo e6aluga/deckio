@@ -98,6 +98,7 @@ public class EditConfigController {
             writer.close();
 
             System.out.println(App.timestamp() + "Config updated successfully!");
+            App.logToFile(App.timestamp() + "Config updated successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }

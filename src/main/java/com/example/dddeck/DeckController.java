@@ -34,6 +34,7 @@ public class DeckController {
     @FXML
     private void initialize(){
         System.out.println(App.timestamp() + "DeckController initialize()");
+        App.logToFile(App.timestamp() + "DeckController initialize()");
         deckHelpLink.setOnAction(e -> openLink("https://github.com/e6aluga/deckio?tab=readme-ov-file#how-to-setup-ssh-on-your-steam-deck"));
 
     }
@@ -41,6 +42,7 @@ public class DeckController {
     @FXML
     private void createDeckConfig(){
         System.out.println(App.timestamp() + "DeckController createDeckConfig()");
+        App.logToFile(App.timestamp() + "DeckController createDeckConfig()");
         String deckIp = deckIpField.getText();
         String deckUser = deckUserField.getText();
         String deckPassword = deckPasswordField.getText();
@@ -62,6 +64,7 @@ public class DeckController {
             Stage stage = (Stage) deckIpField.getScene().getWindow();
             stage.close();
             System.out.println(App.timestamp() + "creating settings.json");
+            App.logToFile(App.timestamp() + "creating settings.json");
     }
 
     public void setDeckData(DeckData deckData){
@@ -77,6 +80,7 @@ public class DeckController {
             }
         } else {
             System.out.println("Desktop is not supported.");
+            App.logToFile("Desktop is not supported.");
         }
     }
 

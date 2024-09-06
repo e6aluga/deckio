@@ -39,7 +39,8 @@ public class AboutController {
                 ex.printStackTrace();
             }
         } else {
-            System.out.println("Desktop is not supported.");
+            System.out.println(App.timestamp() + "Desktop is not supported.");
+            App.logToFile(App.timestamp() + "Desktop is not supported.");
         
         }
     }

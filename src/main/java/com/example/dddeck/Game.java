@@ -108,6 +108,7 @@ public class Game {
 
     private void loadGameConfig(String name) {
         System.out.println(App.timestamp() + "loadGameConfig()");
+        App.logToFile(App.timestamp() + "loadGameConfig()");
         Gson gson = new Gson();
         String filepath = String.format("configs/%s", name);
         Map<String, String> map = null;
@@ -119,6 +120,7 @@ public class Game {
             e.printStackTrace();
         }
         System.out.println(App.timestamp() + "Game settings " + map);
+        App.logToFile(App.timestamp() + "Game settings " + map);
         if (map != null) {
             this.pcLocation = map.get("saveLocationPC");
             this.sdLocation = map.get("saveLocationSteamDeck");
@@ -128,6 +130,7 @@ public class Game {
 
     private void loadSteamDeckSettings(){
         System.out.println(App.timestamp() + "loadSteamDeckSettings()");
+        App.logToFile(App.timestamp() + "loadSteamDeckSettings()");
         Gson gson = new Gson();
         String filepath = "settings.json";
         Map<String, String> map = null;
@@ -140,6 +143,7 @@ public class Game {
         }
 
         System.out.println(App.timestamp() + "Steam Deck Settings: " + map);
+        App.logToFile(App.timestamp() + "Steam Deck Settings: " + map);
 
         if (map != null) {
             this.host = map.get("deckIp");
@@ -200,6 +204,7 @@ public void pcToSteamDeck() {
     pcToSteamDeckTask.setOnSucceeded(event -> {
         appendToConsole(App.timestamp() + "Task completed!");
         System.out.println("Task completed successfully!");
+        App.logToFile("Task completed successfully!");
         progressIndicator.setVisible(false);
     });
 
@@ -239,7 +244,9 @@ public void pcToSteamDeck() {
                     int i = in.read(tmp, 0, 1024);
                     if (i < 0) break;
                     System.out.print(new String(tmp, 0, i));
+                    App.logToFile(new String(tmp, 0, i));
                     appendToConsole(App.timestamp() + new String(tmp, 0, i));
+                    
                 }
                 if (execChannel.isClosed()) {
                     if (in.available() > 0) continue;
@@ -251,6 +258,7 @@ public void pcToSteamDeck() {
             execChannel.disconnect();
             appendToConsole(App.timestamp() + "Folder cleared");
             System.out.println("Folder cleared");
+            App.logToFile("Folder cleared");
 
             sftpChannel = (ChannelSftp) session.openChannel("sftp");
             sftpChannel.connect();
@@ -289,6 +297,7 @@ public void pcToSteamDeck() {
                 try (FileOutputStream fos = new FileOutputStream(localFilePath)) {
                     sftpChannel.get(remoteFilePath, fos);
                     System.out.println("Download complete!: " + entry.getFilename());
+                    App.logToFile("Download complete!: " + entry.getFilename());
                     appendToConsole(App.timestamp() + "Download complete!: " + entry.getFilename());
                 }
             }
@@ -303,6 +312,7 @@ public void pcToSteamDeck() {
                     try {
                         sftpChannel.mkdir(remoteDirPath);
                         System.out.println("folder created: " + remoteDirPath);
+                        App.logToFile("folder created: " + remoteDirPath);
                         appendToConsole(App.timestamp() + "folder created: " + remoteDirPath);
                     } catch (SftpException e) {
                     }
@@ -310,6 +320,7 @@ public void pcToSteamDeck() {
                     String remoteFilePath = remoteDirectoryPath + "/" + Paths.get(localDirectoryPath).relativize(path).toString().replace("\\", "/");
                     sftpChannel.put(path.toString(), remoteFilePath);
                     System.out.println("File uploaded: " + remoteFilePath);
+                    App.logToFile("File uploaded: " + remoteFilePath);
                     appendToConsole(App.timestamp() + "File uploaded: " + remoteFilePath);
                 }
             } catch (Exception e) {

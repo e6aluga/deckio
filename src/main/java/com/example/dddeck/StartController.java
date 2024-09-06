@@ -53,10 +53,13 @@ public class StartController {
     
         System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
 
+        App.logToFile(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
+
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
             attemptConnection(); // Запускаем подключение
         } else {
-            System.out.println("Failed to initialize DeckData. Please check your settings.");
+            System.out.println(App.timestamp() + "Failed to initialize DeckData. Please check your settings.");
+            App.logToFile(App.timestamp() + "Failed to initialize DeckData. Please check your settings.");
             status.setText("Failed to load DeckData.");
         }
     }
@@ -73,7 +76,8 @@ public class StartController {
     
                         // Проверяем, что deckData инициализирован
                         if (deckData == null) {
-                            System.out.println("DeckData is still null.");
+                            System.out.println(App.timestamp() + "DeckData is still null.");
+                            App.logToFile(App.timestamp() + "DeckData is still null.");
                             return null; // Прекращаем задачу, если deckData не инициализирован
                         }
     
@@ -98,6 +102,7 @@ public class StartController {
                 status.setText("Status: connected!");
                 progressIndicator.setVisible(false);
                 System.out.println(App.timestamp() + " Successfully connected to SSH.");
+                App.logToFile(App.timestamp() + " Successfully connected to SSH.");
             }
         });
     
@@ -134,7 +139,8 @@ public class StartController {
                 ex.printStackTrace();
             }
         } else {
-            System.out.println("Desktop is not supported."); 
+            System.out.println(App.timestamp() + "Desktop is not supported."); 
+            App.logToFile(App.timestamp() + "Desktop is not supported."); 
         }
 }
 
@@ -251,6 +257,7 @@ public class StartController {
     @FXML
     public void openAboutWindow(){
         System.out.println(App.timestamp() + "openAboutWindow()");
+        App.logToFile(App.timestamp() + "openAboutWindow()");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/about.fxml"));
             Stage stage = new Stage();
@@ -357,6 +364,7 @@ public void showErrorAlert(String errorMessage) {
 
     private boolean deleteConfig(String selectedItem) {
         System.out.println(App.timestamp() + " StartController deleteConfig()");
+        App.logToFile(App.timestamp() + " StartController deleteConfig()");
         File file = new File(String.format("configs/%s", selectedItem));
         if (file.exists()) {
             return file.delete();
@@ -368,6 +376,7 @@ public void showErrorAlert(String errorMessage) {
 
     private void editConfig(String selectedItem) {
         System.out.println(App.timestamp() + " StartController editConfig()");
+        App.logToFile(App.timestamp() + " StartController editConfig()");
         EditConfigController editConfigController = new EditConfigController();
         editConfigController.setConfigName(selectedItem);
         editConfigController.openUpdateConfigWindow(selectedItem);
