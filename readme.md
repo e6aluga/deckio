@@ -40,7 +40,7 @@
 1.3) Enter your password<br>
 p.s - [recover password](https://youtu.be/jWFjZNxFHew)<br>
 
-2) **Secondly, we need to activate the SSH service on the Steam Deck**v
+2) **Secondly, we need to activate the SSH service on the Steam Deck**<br>
 2.1) enable the sshd service<br>
 ```sudo systemctl start sshd```<br>
 2.2) adding sshd to the startup (in game mode, it also works)<br>
