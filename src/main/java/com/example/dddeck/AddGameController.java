@@ -70,7 +70,6 @@ public class AddGameController{
         configData.setSaveLocationSteamDeck(saveLocationSteamDeck);
         
         System.out.println(configData.getData());
-        App.logToFile(configData.getData());
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         
@@ -82,7 +81,6 @@ public class AddGameController{
 
             String jsonString = gson.toJson(configData);
             System.out.println(App.timestamp() + jsonString);
-            App.logToFile(App.timestamp() + jsonString);
             
         } catch (IOException e){
             e.printStackTrace();

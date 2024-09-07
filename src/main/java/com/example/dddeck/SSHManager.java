@@ -34,8 +34,6 @@ public class SSHManager {
     public Session connect(){
         System.out.println(App.timestamp() + "SSHManager connect()");
         App.logToFile(App.timestamp() + "SSHManager connect()");
-
-        System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
         try {
         JSch jsch = new JSch();
         Session session = jsch.getSession(this.user, this.host, this.port);
@@ -50,10 +48,6 @@ public class SSHManager {
 
         } catch (Exception e){
             e.printStackTrace();
-            System.out.println(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
-            App.logToFile(App.timestamp() + "\nUser: " + this.user + "\nPassword: " + this.password + "\nHost: " + this.host + "\nPort: " + this.port);
-
-
             System.out.println(App.timestamp() + "[e] Session: " + e);
             App.logToFile(App.timestamp() + "[e] Session: " + e);
             return null;

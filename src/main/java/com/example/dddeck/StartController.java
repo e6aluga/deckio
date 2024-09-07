@@ -11,8 +11,11 @@ import javafx.util.Callback;
 import com.jcraft.jsch.Session;
 import javafx.concurrent.Task;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -50,10 +53,6 @@ public class StartController {
         String directoryPath = "configs/";
         updateListView(directoryPath); 
         startWatching(directoryPath);
-    
-        System.out.println(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
-
-        App.logToFile(App.timestamp() + " SD settings: " + deckData.getIp() + "\n" + deckData.getUser() + "\n" + deckData.getPassword() + "\n" + deckData.getPort());
 
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
             attemptConnection(); // Запускаем подключение
@@ -262,7 +261,18 @@ public class StartController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/about.fxml"));
             Stage stage = new Stage();
             stage.setTitle("About");
-            stage.setScene(new Scene(loader.load(), 250, 80));    
+            stage.setScene(new Scene(loader.load(), 250, 80));  
+            
+            InputStream iconStream = getClass().getClassLoader().getResourceAsStream("128.png");
+
+            if (iconStream == null) {
+                System.out.println("Icon not found!");
+            } else {
+                Image icon = new Image(iconStream);
+                stage.getIcons().add(icon);
+                System.out.println("Icon loaded successfully!");
+            }
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -281,6 +291,16 @@ public class StartController {
                 DeckController deckController = (DeckController) controller;
                 deckController.setDeckData(this.deckData);
             }
+
+            InputStream iconStream = getClass().getClassLoader().getResourceAsStream("128.png");
+
+            if (iconStream == null) {
+                System.out.println("Icon not found!");
+            } else {
+                Image icon = new Image(iconStream);
+                stage.getIcons().add(icon);
+                System.out.println("Icon loaded successfully!");
+        }
     
             stage.show();
         } catch (IOException e) {

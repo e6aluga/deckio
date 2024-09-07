@@ -3,6 +3,7 @@ package com.example.dddeck;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 
 import com.google.gson.Gson;
 
@@ -11,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class EditConfigController {
@@ -53,6 +55,18 @@ public class EditConfigController {
             Stage stage = new Stage();
             stage.setTitle("Edit Game");
             stage.setScene(new Scene(root, 700, 400));
+
+
+            InputStream iconStream = getClass().getClassLoader().getResourceAsStream("128.png");
+
+            if (iconStream == null) {
+                System.out.println("Icon not found!");
+            } else {
+                Image icon = new Image(iconStream);
+                stage.getIcons().add(icon);
+                System.out.println("Icon loaded successfully!");
+            }
+
             stage.show();
 
             this.configName = configName;

@@ -2,6 +2,7 @@ package com.example.dddeck;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -12,6 +13,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.FileWriter;
@@ -24,20 +26,33 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/start.fxml"));
+    
         BorderPane root = loader.load();
         Scene scene = new Scene(root, 300, 400);
-
+    
         primaryStage.setOnCloseRequest(event -> {
             System.out.println("Application is closing...");
             Platform.exit();
             System.exit(0);
         });
+    
+        InputStream iconStream = getClass().getClassLoader().getResourceAsStream("128.png");
 
+        if (iconStream == null) {
+            System.out.println("Icon not found!");
+        } else {
+            Image icon = new Image(iconStream);
+            primaryStage.getIcons().add(icon);
+            System.out.println("Icon loaded successfully!");
+        }
+    
         primaryStage.setTitle("deckio");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
     
 
     public static void main(String[] args) {

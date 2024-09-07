@@ -33,7 +33,6 @@ public class DeckData {
             e.printStackTrace();
         }
 
-        System.out.println(App.timestamp() + "Steam Deck Settings: " + map);
 
         if (map != null) {
             this.deckIp = map.get("deckIp");

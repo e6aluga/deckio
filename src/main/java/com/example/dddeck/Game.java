@@ -2,6 +2,7 @@ package com.example.dddeck;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.io.File;
@@ -24,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -99,6 +101,17 @@ public class Game {
             Stage stage = new Stage();
             stage.setTitle(name);
             this.name = name;
+
+            InputStream iconStream = getClass().getClassLoader().getResourceAsStream("128.png");
+
+            if (iconStream == null) {
+                System.out.println("Icon not found!");
+            } else {
+                Image icon = new Image(iconStream);
+                stage.getIcons().add(icon);
+                System.out.println("Icon loaded successfully!");
+            }
+
             stage.setScene(new Scene(root, 700, 300));
             stage.show();
         } catch (IOException e) {
@@ -141,9 +154,6 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println(App.timestamp() + "Steam Deck Settings: " + map);
-        App.logToFile(App.timestamp() + "Steam Deck Settings: " + map);
 
         if (map != null) {
             this.host = map.get("deckIp");

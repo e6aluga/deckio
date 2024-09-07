@@ -232,3 +232,903 @@ deck
 2024-09-06 23:08:35 SSHManager connect()
 2024-09-06 23:08:35 Session connected.com.jcraft.jsch.Session@26b123f7
 2024-09-06 23:08:37  Successfully connected to SSH.
+2024-09-07 14:50:55  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:50:55 SSHManager connect()
+2024-09-07 14:51:20  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:51:20 SSHManager connect()
+2024-09-07 14:51:53  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:51:53 SSHManager connect()
+2024-09-07 14:52:43  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:52:43 SSHManager connect()
+2024-09-07 14:53:15  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:53:15 SSHManager connect()
+2024-09-07 14:53:36 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:53:36 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:53:38 Session is already null or not connected.
+2024-09-07 14:53:38 SSHManager connect()
+2024-09-07 14:53:59 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:53:59 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:54:01 Session is already null or not connected.
+2024-09-07 14:54:01 SSHManager connect()
+2024-09-07 14:54:11  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:54:11 SSHManager connect()
+2024-09-07 14:54:22 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:54:22 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:54:24 Session is already null or not connected.
+2024-09-07 14:54:24 SSHManager connect()
+2024-09-07 14:54:46 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:54:46 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:54:48 Session is already null or not connected.
+2024-09-07 14:54:48 SSHManager connect()
+2024-09-07 14:55:03  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:55:03 SSHManager connect()
+2024-09-07 14:55:09 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:55:09 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:55:11 Session is already null or not connected.
+2024-09-07 14:55:11 SSHManager connect()
+2024-09-07 14:55:32 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:55:32 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:55:34 Session is already null or not connected.
+2024-09-07 14:55:34 SSHManager connect()
+2024-09-07 14:55:55 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:55:55 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:55:57 Session is already null or not connected.
+2024-09-07 14:55:57 SSHManager connect()
+2024-09-07 14:56:10  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:56:10 SSHManager connect()
+2024-09-07 14:56:18 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:56:18 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:56:20 Session is already null or not connected.
+2024-09-07 14:56:20 SSHManager connect()
+2024-09-07 14:56:30  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:56:30 SSHManager connect()
+2024-09-07 14:56:41 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:56:41 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:56:44  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:56:44 SSHManager connect()
+2024-09-07 14:57:05 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:57:05 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:57:07 Session is already null or not connected.
+2024-09-07 14:57:07 SSHManager connect()
+2024-09-07 14:57:28 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:57:28 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:57:30 Session is already null or not connected.
+2024-09-07 14:57:30 SSHManager connect()
+2024-09-07 14:57:39  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:57:39 SSHManager connect()
+2024-09-07 14:58:00 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:58:00 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:58:02 Session is already null or not connected.
+2024-09-07 14:58:02 SSHManager connect()
+2024-09-07 14:58:23 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:58:23 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:58:25 Session is already null or not connected.
+2024-09-07 14:58:25 SSHManager connect()
+2024-09-07 14:58:46 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:58:46 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:58:48 Session is already null or not connected.
+2024-09-07 14:58:48 SSHManager connect()
+2024-09-07 14:59:04  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:59:04 SSHManager connect()
+2024-09-07 14:59:25 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 14:59:25 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 14:59:27 Session is already null or not connected.
+2024-09-07 14:59:27 SSHManager connect()
+2024-09-07 14:59:52  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 14:59:52 SSHManager connect()
+2024-09-07 15:05:08  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:05:08 SSHManager connect()
+2024-09-07 15:08:05  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:08:05 SSHManager connect()
+2024-09-07 15:09:19  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:09:19 SSHManager connect()
+2024-09-07 15:09:27 AddGameController initialize()
+2024-09-07 15:18:18  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:18:18 SSHManager connect()
+2024-09-07 15:18:32  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:18:32 SSHManager connect()
+2024-09-07 15:22:48  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:22:48 SSHManager connect()
+2024-09-07 15:22:57  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:22:57 SSHManager connect()
+2024-09-07 15:23:23  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:23:23 SSHManager connect()
+2024-09-07 15:23:40  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:23:40 SSHManager connect()
+2024-09-07 15:23:49  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:23:50 SSHManager connect()
+2024-09-07 15:24:02  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:24:02 SSHManager connect()
+2024-09-07 15:24:15  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:24:15 SSHManager connect()
+2024-09-07 15:24:23 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:24:23 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:24:25 Session is already null or not connected.
+2024-09-07 15:24:25 SSHManager connect()
+2024-09-07 15:24:46 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:24:46 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:24:48 Session is already null or not connected.
+2024-09-07 15:24:48 SSHManager connect()
+2024-09-07 15:25:02  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:25:02 SSHManager connect()
+2024-09-07 15:25:04 openAboutWindow()
+2024-09-07 15:25:09 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:25:09 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:25:11 Session is already null or not connected.
+2024-09-07 15:25:11 SSHManager connect()
+2024-09-07 15:25:13  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:25:13 SSHManager connect()
+2024-09-07 15:25:18  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:25:18 SSHManager connect()
+2024-09-07 15:25:19 openAboutWindow()
+2024-09-07 15:26:01  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:26:01 SSHManager connect()
+2024-09-07 15:27:23  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:27:23 SSHManager connect()
+2024-09-07 15:27:32  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:27:32 SSHManager connect()
+2024-09-07 15:27:45  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:27:45 SSHManager connect()
+2024-09-07 15:27:50  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:27:50 SSHManager connect()
+2024-09-07 15:34:00  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:34:00 SSHManager connect()
+2024-09-07 15:34:21 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:34:21 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:34:23 Session is already null or not connected.
+2024-09-07 15:34:23 SSHManager connect()
+2024-09-07 15:34:32  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:34:32 SSHManager connect()
+2024-09-07 15:34:42  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:34:42 SSHManager connect()
+2024-09-07 15:34:44 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:34:44 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:34:46 Session is already null or not connected.
+2024-09-07 15:34:46 SSHManager connect()
+2024-09-07 15:34:53 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:34:53 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:34:55 Session is already null or not connected.
+2024-09-07 15:34:55 SSHManager connect()
+2024-09-07 15:35:03 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:35:03 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:35:07 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:35:07 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:35:30  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:35:30 SSHManager connect()
+2024-09-07 15:35:50  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:35:50 SSHManager connect()
+2024-09-07 15:36:13  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:36:13 SSHManager connect()
+2024-09-07 15:36:31  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:36:31 SSHManager connect()
+2024-09-07 15:36:46  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:36:46 SSHManager connect()
+2024-09-07 15:37:15  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:37:15 SSHManager connect()
+2024-09-07 15:39:58  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:39:58 SSHManager connect()
+2024-09-07 15:40:19 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:40:19 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:40:21 Session is already null or not connected.
+2024-09-07 15:40:21 SSHManager connect()
+2024-09-07 15:40:42 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:40:42 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:40:44 Session is already null or not connected.
+2024-09-07 15:40:44 SSHManager connect()
+2024-09-07 15:41:05 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:41:05 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:41:07 Session is already null or not connected.
+2024-09-07 15:41:07 SSHManager connect()
+2024-09-07 15:41:28 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:41:28 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:41:30 Session is already null or not connected.
+2024-09-07 15:41:30 SSHManager connect()
+2024-09-07 15:41:51 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:41:51 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:41:53 Session is already null or not connected.
+2024-09-07 15:41:53 SSHManager connect()
+2024-09-07 15:42:14 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:42:14 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:42:16 Session is already null or not connected.
+2024-09-07 15:42:16 SSHManager connect()
+2024-09-07 15:42:37 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:42:37 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:42:39 Session is already null or not connected.
+2024-09-07 15:42:39 SSHManager connect()
+2024-09-07 15:43:00 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:43:00 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:43:02 Session is already null or not connected.
+2024-09-07 15:43:02 SSHManager connect()
+2024-09-07 15:43:23 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:43:23 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:43:25 Session is already null or not connected.
+2024-09-07 15:43:25 SSHManager connect()
+2024-09-07 15:43:46 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:43:46 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:43:48 Session is already null or not connected.
+2024-09-07 15:43:48 SSHManager connect()
+2024-09-07 15:44:09 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:44:09 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:44:11 Session is already null or not connected.
+2024-09-07 15:44:11 SSHManager connect()
+2024-09-07 15:44:32 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:44:32 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:44:34 Session is already null or not connected.
+2024-09-07 15:44:34 SSHManager connect()
+2024-09-07 15:44:55 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:44:55 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:44:57 Session is already null or not connected.
+2024-09-07 15:44:57 SSHManager connect()
+2024-09-07 15:45:18 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:45:18 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:45:20 Session is already null or not connected.
+2024-09-07 15:45:20 SSHManager connect()
+2024-09-07 15:45:41 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:45:41 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:45:43 Session is already null or not connected.
+2024-09-07 15:45:43 SSHManager connect()
+2024-09-07 15:46:04 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:46:04 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:46:06 Session is already null or not connected.
+2024-09-07 15:46:06 SSHManager connect()
+2024-09-07 15:46:27 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:46:27 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:46:29 Session is already null or not connected.
+2024-09-07 15:46:29 SSHManager connect()
+2024-09-07 15:46:50 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:46:50 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:46:52 Session is already null or not connected.
+2024-09-07 15:46:52 SSHManager connect()
+2024-09-07 15:47:13 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:47:13 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:47:15 Session is already null or not connected.
+2024-09-07 15:47:15 SSHManager connect()
+2024-09-07 15:47:36 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:47:36 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:47:38 Session is already null or not connected.
+2024-09-07 15:47:38 SSHManager connect()
+2024-09-07 15:47:59 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:47:59 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:48:01 Session is already null or not connected.
+2024-09-07 15:48:01 SSHManager connect()
+2024-09-07 15:48:22 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:48:22 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:48:24 Session is already null or not connected.
+2024-09-07 15:48:24 SSHManager connect()
+2024-09-07 15:48:45 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:48:45 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:48:47 Session is already null or not connected.
+2024-09-07 15:48:47 SSHManager connect()
+2024-09-07 15:49:08 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:49:08 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:49:10 Session is already null or not connected.
+2024-09-07 15:49:10 SSHManager connect()
+2024-09-07 15:49:31 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:49:31 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:49:33 Session is already null or not connected.
+2024-09-07 15:49:33 SSHManager connect()
+2024-09-07 15:49:54 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:49:54 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:49:56 Session is already null or not connected.
+2024-09-07 15:49:56 SSHManager connect()
+2024-09-07 15:50:17 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:50:17 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:50:19 Session is already null or not connected.
+2024-09-07 15:50:19 SSHManager connect()
+2024-09-07 15:50:40 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:50:40 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:50:42 Session is already null or not connected.
+2024-09-07 15:50:42 SSHManager connect()
+2024-09-07 15:51:03 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:51:03 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:51:05 Session is already null or not connected.
+2024-09-07 15:51:05 SSHManager connect()
+2024-09-07 15:51:26 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:51:26 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:51:29 Session is already null or not connected.
+2024-09-07 15:51:29 SSHManager connect()
+2024-09-07 15:51:50 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:51:50 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:51:52 Session is already null or not connected.
+2024-09-07 15:51:52 SSHManager connect()
+2024-09-07 15:52:13 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:52:13 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:52:15 Session is already null or not connected.
+2024-09-07 15:52:15 SSHManager connect()
+2024-09-07 15:52:36 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:52:36 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:52:38 Session is already null or not connected.
+2024-09-07 15:52:38 SSHManager connect()
+2024-09-07 15:52:59 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:52:59 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:53:01 Session is already null or not connected.
+2024-09-07 15:53:01 SSHManager connect()
+2024-09-07 15:53:22 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:53:22 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:53:24 Session is already null or not connected.
+2024-09-07 15:53:24 SSHManager connect()
+2024-09-07 15:53:45 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:53:45 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:53:47 Session is already null or not connected.
+2024-09-07 15:53:47 SSHManager connect()
+2024-09-07 15:54:08 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:54:08 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:54:10 Session is already null or not connected.
+2024-09-07 15:54:10 SSHManager connect()
+2024-09-07 15:54:31 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:54:31 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:54:33 Session is already null or not connected.
+2024-09-07 15:54:33 SSHManager connect()
+2024-09-07 15:54:54 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:54:54 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:54:56 Session is already null or not connected.
+2024-09-07 15:54:56 SSHManager connect()
+2024-09-07 15:55:17 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:55:17 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:55:19 Session is already null or not connected.
+2024-09-07 15:55:19 SSHManager connect()
+2024-09-07 15:55:40 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:55:40 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:55:42 Session is already null or not connected.
+2024-09-07 15:55:42 SSHManager connect()
+2024-09-07 15:56:03 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:56:03 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:56:05 Session is already null or not connected.
+2024-09-07 15:56:05 SSHManager connect()
+2024-09-07 15:56:26 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:56:26 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:56:28 Session is already null or not connected.
+2024-09-07 15:56:28 SSHManager connect()
+2024-09-07 15:56:49 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:56:49 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:56:51 Session is already null or not connected.
+2024-09-07 15:56:51 SSHManager connect()
+2024-09-07 15:57:12 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:57:12 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:57:14 Session is already null or not connected.
+2024-09-07 15:57:14 SSHManager connect()
+2024-09-07 15:57:17 DeckController initialize()
+2024-09-07 15:57:35 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:57:35 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:57:37 Session is already null or not connected.
+2024-09-07 15:57:37 SSHManager connect()
+2024-09-07 15:57:58 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:57:58 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:58:00 Session is already null or not connected.
+2024-09-07 15:58:00 SSHManager connect()
+2024-09-07 15:58:21 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:58:21 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:58:23 Session is already null or not connected.
+2024-09-07 15:58:23 SSHManager connect()
+2024-09-07 15:58:44 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:58:44 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:58:46 Session is already null or not connected.
+2024-09-07 15:58:46 SSHManager connect()
+2024-09-07 15:59:07 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:59:07 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:59:09 Session is already null or not connected.
+2024-09-07 15:59:09 SSHManager connect()
+2024-09-07 15:59:30 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 15:59:30 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 15:59:32 Session is already null or not connected.
+2024-09-07 15:59:32 SSHManager connect()
+2024-09-07 15:59:40  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:59:40 SSHManager connect()
+2024-09-07 15:59:46  SD settings: 192.168.1.110
+deck
+1234
+22
+2024-09-07 15:59:46 SSHManager connect()
+2024-09-07 15:59:51 DeckController initialize()
+2024-09-07 15:59:56 AddGameController initialize()
+2024-09-07 15:59:59 openAboutWindow()
+2024-09-07 16:00:01 openAboutWindow()
+2024-09-07 16:00:07 
+User: deck
+Password: 1234
+Host: 192.168.1.110
+Port: 22
+2024-09-07 16:00:07 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:00:08 DeckController initialize()
+2024-09-07 16:00:09 Session is already null or not connected.
+2024-09-07 16:00:09 SSHManager connect()
+2024-09-07 16:06:33 SSHManager connect()
+2024-09-07 16:06:54 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:06:56 Session is already null or not connected.
+2024-09-07 16:06:56 SSHManager connect()
+2024-09-07 16:07:17 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:07:19 Session is already null or not connected.
+2024-09-07 16:07:19 SSHManager connect()
+2024-09-07 16:07:23 SSHManager connect()
+2024-09-07 16:07:44 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:07:46 Session is already null or not connected.
+2024-09-07 16:07:46 SSHManager connect()
+2024-09-07 16:08:04 SSHManager connect()
+2024-09-07 16:08:07 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:09 Session is already null or not connected.
+2024-09-07 16:08:09 SSHManager connect()
+2024-09-07 16:08:24 SSHManager connect()
+2024-09-07 16:08:25 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:27 Session is already null or not connected.
+2024-09-07 16:08:27 SSHManager connect()
+2024-09-07 16:08:30 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:32 Session is already null or not connected.
+2024-09-07 16:08:32 SSHManager connect()
+2024-09-07 16:08:45 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:47 Session is already null or not connected.
+2024-09-07 16:08:47 SSHManager connect()
+2024-09-07 16:08:48 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:50 Session is already null or not connected.
+2024-09-07 16:08:50 SSHManager connect()
+2024-09-07 16:08:53 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:08:55 Session is already null or not connected.
+2024-09-07 16:08:55 SSHManager connect()
+2024-09-07 16:09:08 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:10 Session is already null or not connected.
+2024-09-07 16:09:10 SSHManager connect()
+2024-09-07 16:09:11 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:13 Session is already null or not connected.
+2024-09-07 16:09:13 SSHManager connect()
+2024-09-07 16:09:16 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:18 Session is already null or not connected.
+2024-09-07 16:09:18 SSHManager connect()
+2024-09-07 16:09:31 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:33 Session is already null or not connected.
+2024-09-07 16:09:33 SSHManager connect()
+2024-09-07 16:09:34 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:36 Session is already null or not connected.
+2024-09-07 16:09:36 SSHManager connect()
+2024-09-07 16:09:39 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:41 Session is already null or not connected.
+2024-09-07 16:09:41 SSHManager connect()
+2024-09-07 16:09:54 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:56 Session is already null or not connected.
+2024-09-07 16:09:56 SSHManager connect()
+2024-09-07 16:09:57 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:09:59 Session is already null or not connected.
+2024-09-07 16:09:59 SSHManager connect()
+2024-09-07 16:10:02 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:10:04 Session is already null or not connected.
+2024-09-07 16:10:04 SSHManager connect()
+2024-09-07 16:10:20 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:10:22 Session is already null or not connected.
+2024-09-07 16:10:22 SSHManager connect()
+2024-09-07 16:10:25 [e] Session: com.jcraft.jsch.JSchException: java.net.ConnectException: Connection timed out: connect
+2024-09-07 16:10:27 Session is already null or not connected.
+2024-09-07 16:10:27 SSHManager connect()
+2024-09-07 16:23:58 SSHManager connect()
+2024-09-07 16:25:57 SSHManager connect()
+2024-09-07 17:30:33 SSHManager connect()
+2024-09-07 17:32:18 SSHManager connect()
+2024-09-07 17:35:40 SSHManager connect()
+2024-09-07 17:40:34 SSHManager connect()
+2024-09-07 17:48:31 SSHManager connect()
+2024-09-07 17:48:36 DeckController initialize()
