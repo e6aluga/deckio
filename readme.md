@@ -16,7 +16,7 @@
 ---
 
 <p align="center">
-  <img src="img/main.jpg" alt="deckio_window" width="80%"/>
+  <img src="img/main.jpg" alt="deckio_window" width="100%"/>
 </p>
 
 ## Install:
@@ -61,6 +61,6 @@
      <p align="center">
        <img src="img/ip.jpg" alt="Steam Deck IP"/>
      </p>
-     
+
    - **Second method:**
      Open your router's settings (usually `192.168.1.1`) and look at the Steam Deck IP in devices

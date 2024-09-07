@@ -3,11 +3,14 @@ package com.example.dddeck;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.time.chrono.ThaiBuddhistChronology;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -119,27 +122,27 @@ public class Game {
         }
     }
 
-    private void loadGameConfig(String name) {
-        System.out.println(App.timestamp() + "loadGameConfig()");
-        App.logToFile(App.timestamp() + "loadGameConfig()");
-        Gson gson = new Gson();
-        String filepath = String.format("configs/%s", name);
-        Map<String, String> map = null;
+private void loadGameConfig(String name) {
+    System.out.println(App.timestamp() + " loadGameConfig()");
+    App.logToFile(App.timestamp() + " loadGameConfig()");
+    Gson gson = new Gson();
+    String filepath = String.format("configs/%s", name);
+    Map<String, String> map = null;
 
-        try (FileReader fileReader = new FileReader(filepath)) {
-            Type type = new TypeToken<Map<String, String>>() {}.getType();
-            map = gson.fromJson(fileReader, type);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(App.timestamp() + "Game settings " + map);
-        App.logToFile(App.timestamp() + "Game settings " + map);
-        if (map != null) {
-            this.pcLocation = map.get("saveLocationPC");
-            this.sdLocation = map.get("saveLocationSteamDeck");
-            this.name = map.get("gameName");
-        }
+    try (InputStreamReader reader = new InputStreamReader(new FileInputStream(filepath), StandardCharsets.UTF_8)) {
+        Type type = new TypeToken<Map<String, String>>() {}.getType();
+        map = gson.fromJson(reader, type);
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+    System.out.println(App.timestamp() + " Game settings " + map);
+    App.logToFile(App.timestamp() + " Game settings " + map);
+    if (map != null) {
+        this.pcLocation = map.get("saveLocationPC");
+        this.sdLocation = map.get("saveLocationSteamDeck");
+        this.name = map.get("gameName");
+    }
+}
 
     private void loadSteamDeckSettings(){
         System.out.println(App.timestamp() + "loadSteamDeckSettings()");

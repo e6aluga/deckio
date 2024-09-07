@@ -1,0 +1,25 @@
+2024-09-07 18:14:30 SSHManager connect()
+2024-09-07 18:14:31 Session connected.com.jcraft.jsch.Session@285276ba
+2024-09-07 18:14:33  Successfully connected to SSH.
+2024-09-07 18:14:34 loadGameConfig()
+2024-09-07 18:14:34 Game settings {name=Elden Ring (Example), saveLocationPC=C:\Users\����\AppData\Roaming\EldenRing, saveLocationSteamDeck=/home/deck/Games/hades-prefix/drive_c/users/deck/AppData/Roaming/EldenRing, gameName=Elden Ring}
+2024-09-07 18:14:34 loadSteamDeckSettings()
+2024-09-07 18:18:14 SSHManager connect()
+2024-09-07 18:18:15 Session connected.com.jcraft.jsch.Session@285276ba
+2024-09-07 18:18:17  Successfully connected to SSH.
+2024-09-07 18:18:18  loadGameConfig()
+2024-09-07 18:18:18  Game settings {name=Elden Ring (Example), saveLocationPC=C:\Users\����\AppData\Roaming\EldenRing, saveLocationSteamDeck=/home/deck/Games/hades-prefix/drive_c/users/deck/AppData/Roaming/EldenRing, gameName=Elden Ring}
+2024-09-07 18:18:18 loadSteamDeckSettings()
+2024-09-07 18:19:47 SSHManager connect()
+2024-09-07 18:19:47 Session connected.com.jcraft.jsch.Session@61f1a525
+2024-09-07 18:19:49  Successfully connected to SSH.
+2024-09-07 18:19:55 AddGameController initialize()
+2024-09-07 18:21:19 AddGameController saveGame()
+2024-09-07 18:21:19 AddGameController addConfig()
+2024-09-07 18:21:21  loadGameConfig()
+2024-09-07 18:21:21  Game settings {name=Elden Ring, saveLocationPC=C:\Users\Юрий\AppData\Roaming\EldenRing, saveLocationSteamDeck=/home/deck/Games/prefix/drive_c/users/deck/AppData/Roaming/EldenRing, gameName=Elden Ring}
+2024-09-07 18:21:21 loadSteamDeckSettings()
+2024-09-07 18:21:26 Getting saves from Steam Deck
+2024-09-07 18:21:26 C:\Users\Юрий\AppData\Roaming\EldenRing -> backups\[PC] 2024-09 07_18_21_26 Elden Ring Directory copied successfully!
+2024-09-07 18:21:26 Downloading save from SD...
+2024-09-07 18:21:27 Completed!
