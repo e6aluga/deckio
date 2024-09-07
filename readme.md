@@ -61,5 +61,6 @@
      <p align="center">
        <img src="img/ip.jpg" alt="Steam Deck IP"/>
      </p>
+     
    - **Second method:**
      Open your router's settings (usually `192.168.1.1`) and look at the Steam Deck IP in devices
