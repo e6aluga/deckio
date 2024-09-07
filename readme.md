@@ -53,13 +53,13 @@
 
 3. **Finally, we need to find out the IP of the Steam Deck**
    - **First method:**
-     - Write in **Konsole:**  
+     Write in **Konsole:**  
        ```bash
        ip -c a
        ```
-     - where **wlan0** is the Steam Deck IP  
+   where **wlan0** is the Steam Deck IP  
      <p align="center">
        <img src="img/ip.jpg" alt="Steam Deck IP"/>
      </p>
    - **Second method:**
-     - Open your router's settings (usually `192.168.1.1`) and look at the Steam Deck IP in devices
+     Open your router's settings (usually `192.168.1.1`) and look at the Steam Deck IP in devices
