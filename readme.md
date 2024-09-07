@@ -1,28 +1,31 @@
-<center><img src="img/1000x1000.png" style="width: 300px"></img></center>
-<center style="font-size:40px"> deckio (beta) </center>
-
-<center><p>deckio is a utility application designed to synchronize game saves between your PC and Steam Deck via SFTP. <br> It provides an easy-to-use interface for sending and receiving game saves, ensuring your progress is always up-to-date across your devices.</p>
-
-[Download](https://github.com/e6aluga/deckio/releases) </center>
-
-
----
-</br>
-<center>
 <p align="center">
- <img width="80%" src="img/main.jpg" alt="deckio_window"/>
+  <img src="img/1000x1000.png" alt="deckio" width="300"/>
 </p>
 
+<h1 align="center">deckio (beta)</h1>
 
-</center>
+<p align="center">
+  deckio is a utility application designed to synchronize game saves between your PC and Steam Deck via SFTP.<br>
+  It provides an easy-to-use interface for sending and receiving game saves, ensuring your progress is always up-to-date across your devices.
+</p>
 
-# Install:
+<p align="center">
+  <a href="https://github.com/e6aluga/deckio/releases">Download</a>
+</p>
 
-1) **Download** latest version from the [release page](https://github.com/e6aluga/deckio/releases)
-2) **Unzip** the archive to your computer
-3) **Open** deckio.exe
+---
 
-# Future updates:
+<p align="center">
+  <img src="img/main.jpg" alt="deckio_window" width="80%"/>
+</p>
+
+## Install:
+
+1. **Download** the latest version from the [release page](https://github.com/e6aluga/deckio/releases)
+2. **Unzip** the archive to your computer
+3. **Open** `deckio.exe`
+
+## Future updates:
 
 * SFTP Explorer
 * Automatic synchronization of saves in addition to manual ones
@@ -31,24 +34,32 @@
 * Custom CSS themes
 * Cloud saves
 
-# How to setup SSH on your Steam Deck:
+## How to setup SSH on your Steam Deck:
 
-1) **First, we need to set the superuser password**<br>
-1.1)  Switch to desktop mode<br>
-1.2) Open **Konsole** and write: <br>
-```passwd```<br>
-1.3) Enter your password<br>
-p.s - [recover password](https://youtu.be/jWFjZNxFHew)<br>
+1. **First, we need to set the superuser password**
+   - Switch to desktop mode
+   - Open **Konsole** and write:  
+     ```bash
+     passwd
+     ```
+   - Enter your password  
+   p.s - [recover password](https://youtu.be/jWFjZNxFHew)
 
-2) **Activate the SSH service on the Steam Deck**<br>
-2.1) Enable the sshd service<br>
-```sudo systemctl enable sshd --now```<br>
-3) **Finally, we need to find out the ip of the Steam Deck**<br>
-   3.1) **First method:** <br>
-   Write in in **Konsole:**<br>
-    ```ip -c a```<br>
-    where **wlan0** - Steam Deck Ip<br>
-    <img src="img/ip.jpg"></img>
+2. **Activate the SSH service on the Steam Deck**
+   - Enable the sshd service  
+     ```bash
+     sudo systemctl enable sshd --now
+     ```
 
-    3.2) **Second method:** <br>
-    Open your router's settings (usually **192.168.1.1**) and look at the Steam Deck Ip in devices<br>
+3. **Finally, we need to find out the IP of the Steam Deck**
+   - **First method:**
+     - Write in **Konsole:**  
+       ```bash
+       ip -c a
+       ```
+     - where **wlan0** is the Steam Deck IP  
+     <p align="center">
+       <img src="img/ip.jpg" alt="Steam Deck IP"/>
+     </p>
+   - **Second method:**
+     - Open your router's settings (usually `192.168.1.1`) and look at the Steam Deck IP in devices
