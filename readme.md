@@ -25,6 +25,12 @@
 2. **Unzip** the archive to your computer
 3. **Open** `deckio.exe`
 
+## Backups:
+
+```
+{deckioFolder}/backups/
+```
+
 ## Future updates:
 
 * SFTP Explorer
