@@ -174,7 +174,7 @@ public class App extends Application {
     }
 
     public static void logToFile(String message) {
-        try (FileWriter fileWriter = new FileWriter("logs.txt", true); // true 
+        try (FileWriter fileWriter = new FileWriter("logs.txt", true);
              PrintWriter printWriter = new PrintWriter(fileWriter)) {
             printWriter.println(message);
         } catch (IOException e) {

@@ -3,7 +3,7 @@ module com.example.dddeck {
     requires javafx.fxml;
     requires com.google.gson;
     requires jsch;
-    requires java.desktop; // Add this line to include java.awt
+    requires java.desktop;
 
     opens com.example.dddeck to javafx.fxml, com.google.gson;
     exports com.example.dddeck;

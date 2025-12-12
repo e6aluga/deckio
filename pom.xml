@@ -6,9 +6,9 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>22</maven.compiler.source> <!-- Update to match JDK version -->
-        <maven.compiler.target>22</maven.compiler.target> <!-- Update to match JDK version -->
-        <javafx.version>20</javafx.version> <!-- Update JavaFX version if needed -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
+        <javafx.version>20</javafx.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,9 +37,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version> <!-- Use a version compatible with JDK 22 -->
+                <version>3.11.0</version>
                 <configuration>
-                    <release>22</release> <!-- Update to match JDK version -->
+                    <release>22</release>
                     <compilerArgs>
                         <arg>--add-opens</arg>
                         <arg>java.base/java.lang=ALL-UNNAMED</arg>
@@ -57,7 +57,7 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.11</version> <!-- Update to a version compatible with JDK 22 -->
+                <version>0.0.11</version>
                 <executions>
                     <execution>
                         <id>default-cli</id>

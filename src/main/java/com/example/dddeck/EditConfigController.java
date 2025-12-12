@@ -42,7 +42,6 @@ public class EditConfigController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/editgame.fxml"));
             Parent root = loader.load();
     
-            // Получаем контроллер, связанный с загруженным FXML
             EditConfigController controller = loader.getController();
     
             controller.setConfigName(configName); 
@@ -75,7 +74,6 @@ public class EditConfigController {
             e.printStackTrace();
         }
     }
-    
 
     @FXML
     private void handleSaveButtonAction() {

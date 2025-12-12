@@ -45,7 +45,6 @@ public class DeckData {
     public DeckData(){
     }
 
-    // Геттеры и сеттеры
     public String getIp() {
         return deckIp;
     }

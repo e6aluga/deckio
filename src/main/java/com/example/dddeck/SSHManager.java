@@ -83,7 +83,6 @@ public class SSHManager {
             InputStream in = channelExec.getInputStream();
             channelExec.connect();
 
-            // Use StringBuilder to accumulate the output
             StringBuilder outputBuffer = new StringBuilder();
             byte[] tmp = new byte[1024];
             while (true) {

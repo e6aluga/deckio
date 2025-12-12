@@ -55,7 +55,7 @@ public class StartController {
         startWatching(directoryPath);
 
         if (deckData.getIp() != null && deckData.getUser() != null && deckData.getPassword() != null) {
-            attemptConnection(); // Запускаем подключение
+            attemptConnection();
         } else {
             System.out.println(App.timestamp() + "Failed to initialize DeckData. Please check your settings.");
             App.logToFile(App.timestamp() + "Failed to initialize DeckData. Please check your settings.");
@@ -70,26 +70,25 @@ public class StartController {
                 while (sshManager == null || sshManager.getSession() == null || !sshManager.getSession().isConnected()) {
                     try {
                         if (sshManager != null) {
-                            sshManager.disconnect(session); // Закрываем старую сессию, если она существует
+                            sshManager.disconnect(session);
                         }
     
-                        // Проверяем, что deckData инициализирован
                         if (deckData == null) {
                             System.out.println(App.timestamp() + "DeckData is still null.");
                             App.logToFile(App.timestamp() + "DeckData is still null.");
-                            return null; // Прекращаем задачу, если deckData не инициализирован
+                            return null;
                         }
     
                         sshManager = new SSHManager(deckData.getIp(), deckData.getUser(), deckData.getPassword(), 22);
                         session = sshManager.connect();
                         Thread.sleep(2000);
                         if (session != null && session.isConnected()) {
-                            break; // Прерываем цикл, если подключение успешно
+                            break;
                         }
     
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Thread.sleep(5000); // Задержка перед повторной попыткой
+                        Thread.sleep(5000);
                     }
                 }
                 return null;
@@ -110,12 +109,10 @@ public class StartController {
             exception.printStackTrace();
             progressIndicator.setVisible(true);
             status.setText("Status: connection failed, retrying...");
-            attemptConnection(); // Если возникла ошибка, пробуем снова
+            attemptConnection();
         });
     
-
         new Thread(sshTask).start();
-
 
     }
 
@@ -210,7 +207,6 @@ public class StartController {
                     }
                 };
 
-                // Обработчики кликов на ячейках
                 cell.setOnMouseClicked(event -> {
                     if (!cell.isEmpty()) {
                         if (event.getButton() == MouseButton.SECONDARY) {
@@ -226,7 +222,6 @@ public class StartController {
                         }
                     }
                 });
-
                 return cell;
             }
         });
@@ -407,5 +402,3 @@ public void showErrorAlert(String errorMessage) {
         App.openFolderInExplorer("backups");
     }
 }
-
-
